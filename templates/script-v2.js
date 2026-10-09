@@ -176,6 +176,17 @@
     });
   })();
 
+  /* ---------- Anker-Sprung nach Seitenwechsel (Fix fuer iOS Safari) ---------- */
+  (function () {
+    function jumpToHash() {
+      if (!location.hash) return;
+      const target = document.querySelector(location.hash);
+      if (target) target.scrollIntoView({ block: "start", behavior: "auto" });
+    }
+    window.addEventListener("load", () => setTimeout(jumpToHash, 150));
+    window.addEventListener("hashchange", jumpToHash);
+  })();
+
   /* ---------- Hero-Bildwechsel (Startseite) ---------- */
   (function () {
     const ROTATE = [
