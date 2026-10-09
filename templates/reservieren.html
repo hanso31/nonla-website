@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tisch reservieren · Nón Lá Spalenbrunnen Basel</title>
+  <meta name="description" content="Online-Tischreservation für das Nón Lá Vietnamese Kitchen Spalenbrunnen – für Abend und Samstagmittag." />
+  <link rel="icon" type="image/png" href="images/logo-original.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles-v2.css" />
+</head>
+<body>
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Nón Lá – zur Startseite">
+        <img src="images/logo-original.png" alt="Nón Lá Vietnamese Kitchen – Logo" />
+      </a>
+
+      <nav class="nav__links" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="nav.home">@@i18n:nav.home@@</a>
+        <div class="nav__item">
+          <a href="speisekarte-markthalle.html" data-i18n="nav.menus" aria-current="page">@@i18n:nav.menus@@</a>
+          <div class="dropdown" role="menu" aria-label="Speisekarten">
+            <a href="speisekarte-markthalle.html"><span data-i18n="nav.menu1">@@i18n:nav.menu1@@</span> <span>Streetfood</span></a>
+            <a href="speisekarte-spalenbrunnen-mittag.html"><span data-i18n="nav.menu2">@@i18n:nav.menu2@@</span> <span>Mo–Fr</span></a>
+            <a href="speisekarte-spalenbrunnen-abend.html"><span data-i18n="nav.menu3">@@i18n:nav.menu3@@</span> <span>Sa ganztags</span></a>
+            <a href="speisekarte-klara.html"><span data-i18n="nav.menu4">@@i18n:nav.menu4@@</span> <span>Corner</span></a>
+          </div>
+        </div>
+        <a href="bestellen.html" data-i18n="nav.order">@@i18n:nav.order@@</a>
+        <a href="index.html#ueber-uns" data-i18n="nav.about">@@i18n:nav.about@@</a>
+        <a href="catering.html" data-i18n="nav.catering">@@i18n:nav.catering@@</a>
+        <a href="index.html#standorte" data-i18n="nav.locations">@@i18n:nav.locations@@</a>
+        <a href="index.html#kontakt" data-i18n="nav.contact">@@i18n:nav.contact@@</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Sprache wählen">
+          <button class="lang__btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn--primary nav__cta" href="reservieren.html" data-i18n="nav.reserve">@@i18n:nav.reserve@@</a>
+        <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile Navigation">
+      <a href="index.html" data-i18n="nav.home">@@i18n:nav.home@@</a>
+      <a href="speisekarte-markthalle.html" data-i18n="nav.menu1">@@i18n:nav.menu1@@</a>
+      <a href="speisekarte-spalenbrunnen-mittag.html" data-i18n="nav.menu2">@@i18n:nav.menu2@@</a>
+      <a href="speisekarte-spalenbrunnen-abend.html" data-i18n="nav.menu3">@@i18n:nav.menu3@@</a>
+      <a href="speisekarte-klara.html" data-i18n="nav.menu4">@@i18n:nav.menu4@@</a>
+      <a href="bestellen.html" data-i18n="nav.order">@@i18n:nav.order@@</a>
+      <a href="index.html#ueber-uns" data-i18n="nav.about">@@i18n:nav.about@@</a>
+      <a href="catering.html" data-i18n="nav.catering">@@i18n:nav.catering@@</a>
+      <a href="index.html#standorte" data-i18n="nav.locations">@@i18n:nav.locations@@</a>
+      <a href="index.html#kontakt" data-i18n="nav.contact">@@i18n:nav.contact@@</a>
+      <a class="btn btn--primary" href="reservieren.html" data-i18n="nav.reserve">@@i18n:nav.reserve@@</a>
+      <div class="lang" role="group" aria-label="Sprache wählen">
+        <button class="lang__btn is-active" data-lang="de" aria-pressed="true">DE</button>
+        <button class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ============ HEADER ============ -->
+    <section class="page-head">
+      <div class="page-head__bg" aria-hidden="true">Chào</div>
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Brotkrumen">
+          <a href="index.html" data-i18n="nav.home">@@i18n:nav.home@@</a><span class="sep">›</span>
+          <span data-i18n="rz.crumb">@@i18n:rz.crumb@@</span>
+        </nav>
+        <p class="eyebrow" data-i18n="rz.eyebrow">@@i18n:rz.eyebrow@@</p>
+        <h1 data-i18n="rz.title">@@i18n:rz.title@@</h1>
+        <p class="lead" data-i18n="rz.lead">@@i18n:rz.lead@@</p>
+      </div>
+    </section>
+
+    <div class="resv-wrap reveal">
+      <iframe class="resv-frame" src="https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiZ29xckN3RDllRVE4YkdXeDIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9" title="Online-Reservation Nón Lá Spalenbrunnen" loading="lazy">Reservieren</iframe>
+      <p class="resv-fallback"><span data-i18n="rz.fallback">@@i18n:rz.fallback@@</span>
+        <a class="link-arrow" href="https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJrIjoid2l2dTVrM2lsNm15cnBiOWlwdzZ4bmViajhycnVkaWRpZ280bGZwODBsbzlhNGlweTEiLCJyIjoiZ29xckN3RDllRVE4YkdXeDIiLCJzIjoiaHR0cHM6Ly9teXRvb2xzLmFsZW5vLm1lLyJ9" target="_blank" rel="noopener" data-i18n="rz.fallback-link">@@i18n:rz.fallback-link@@</a>
+      </p>
+      <p class="resv-fallback"><span data-i18n="rz.phone">@@i18n:rz.phone@@</span> <a class="link-arrow" href="tel:+41615061177">061 506 11 77</a></p>
+    </div>
+
+  </main>
+
+  <!-- ============ FOOTER / KONTAKT ============ -->
+  <footer class="footer" id="kontakt">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img class="footer__logo" src="images/logo-original.png" alt="Nón Lá Vietnamese Kitchen – Logo" />
+        <p class="footer__tag" data-i18n="ft.tag">@@i18n:ft.tag@@</p>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/nonlabasel" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8.3v3h2.4v7h2.8Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/nonla_basel/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="ft.menus">@@i18n:ft.menus@@</h4>
+        <a href="speisekarte-markthalle.html" data-i18n="nav.menu1">@@i18n:nav.menu1@@</a>
+        <a href="speisekarte-spalenbrunnen-mittag.html" data-i18n="nav.menu2">@@i18n:nav.menu2@@</a>
+        <a href="speisekarte-spalenbrunnen-abend.html" data-i18n="nav.menu3">@@i18n:nav.menu3@@</a>
+        <a href="speisekarte-klara.html" data-i18n="nav.menu4">@@i18n:nav.menu4@@</a>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="ft.contact">@@i18n:ft.contact@@</h4>
+        <a href="mailto:info@nonla.ch">info@nonla.ch</a>
+        <a href="mailto:feedback@nonla.ch">feedback@nonla.ch</a>
+        <a href="tel:+41615061177">+41 61 506 11 77</a>
+        <a href="bestellen.html" data-i18n="nav.order">@@i18n:nav.order@@</a>
+        <a href="reservieren.html" data-i18n="nav.reserve">@@i18n:nav.reserve@@</a>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="ft.visit">@@i18n:ft.visit@@</h4>
+        <a href="index.html#standorte" data-i18n="ft.s1">@@i18n:ft.s1@@</a>
+        <a href="index.html#standorte" data-i18n="ft.s2">@@i18n:ft.s2@@</a>
+        <a href="index.html#standorte" data-i18n="ft.s3">@@i18n:ft.s3@@</a>
+        <a href="catering.html" data-i18n="nav.catering">@@i18n:nav.catering@@</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 Nón Lá Vietnamese Kitchen · Streetfood · Corner</p>
+      <p data-i18n="ft.credits">@@i18n:ft.credits@@</p>
+    </div>
+  </footer>
+
+  <script src="script-v2.js"></script>
+</body>
+</html>

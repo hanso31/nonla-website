@@ -1,0 +1,5 @@
+# Netlify-Build: Inhalte aus content/ + Vorlagen aus templates/
+# werden mit build.py nach dist/ gebaut und von dort veröffentlicht.
+[build]
+  command = "pip install -r requirements.txt && python build.py"
+  publish = "dist"

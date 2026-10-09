@@ -1,0 +1,213 @@
+# =====================================================================
+# Speisekarte Alte Markthalle – Inhalte
+# =====================================================================
+# Hier stehen alle Texte und Gerichte der Seite
+# "speisekarte-markthalle.html" (Standort Alte Markthalle).
+#
+# So editierst du diese Datei:
+# - Jeder Eintrag hat einen deutschen ("de") und einen englischen
+#   ("en") Text. Texte immer in doppelten Anführungszeichen lassen.
+# - "<br/>" steht für einen Zeilenumbruch auf der Website und muss
+#   genau so stehen bleiben.
+# - "&amp;" ist das &-Zeichen und muss genau so stehen bleiben.
+# - Das Feld "id" bei Kategorien und Gerichten ist ein stabiler
+#   interner Schlüssel (steht z. B. als data-i18n="mk.a1" im HTML).
+#   Bitte NIEMALS ändern, sonst gehen die Übersetzungen verloren.
+# - "preis_leerzeile: true" erzeugt eine absichtlich leere Preiszeile
+#   (Abstandshalter im Layout) – nicht entfernen.
+# - Bei "tags_de"/"tags_en" stehen die Abkürzungen:
+#   vt = vegetarisch, vg = vegan.
+#
+# Bilder liegen im Ordner images/ und werden hier nur verlinkt.
+
+prefix: mk
+codes: true   # diese Karte hat eine Code-Spalte (A1, B2 ...)
+
+texte:
+  crumb: {de: "Speisekarte Alte Markthalle", en: "Menu Old Market Hall"}
+  eyebrow: {de: "Streetfood · Take away", en: "Streetfood · Take away"}
+  title: {de: "Alte Markthalle", en: "Old Market Hall"}
+  lead: {de: "Vietnamesische Streetfood-Klassiker in der Markthalle Basel – 3 Minuten vom Bahnhof SBB. Alles frisch zubereitet, zum Mitnehmen oder vor Ort im Markthallen-Ambiente.", en: "Vietnamese street food classics in the Basel Market Hall – 3 minutes from SBB station. Everything freshly prepared, to take away or enjoy on site in the market hall atmosphere."}
+  legend1: {de: "vegan möglich, bitte informieren Sie uns wenn gewünscht.", en: "vegan possible, please let us know if desired."}
+  legend2: {de: "Wann immer möglich kochen wir gerne glutenfrei. Bitte informieren Sie uns über bekannte Allergien.", en: "Whenever possible, we are happy to cook gluten-free. Please inform us of any known allergies."}
+  order: {de: "Online bestellen", en: "Order online"}
+  all-loc: {de: "Alle Standorte", en: "All locations"}
+
+kategorien:
+  - id: a
+    i18n: catA
+    name_de: "Vorspeisen &amp; Salate"
+    name_en: "Starters &amp; salads"
+    gerichte:
+      - id: a1
+        layout: bild
+        bild: images/dish-goi-du-du.jpg
+        alt: "Gỏi Đu Đủ – Papayasalat mit Crevetten"
+        code: A1
+        name: "GỎI ĐU ĐỦ"
+        text_de: "Papayasalat mit hausgemachter Fischsauce<br/>oder veganer Sauce"
+        text_en: "Papaya salad with homemade fish sauce<br/>or vegan sauce"
+        preis: "15 CHF"
+        tags_de: "vt · vg"
+        tags_en: "vt · vg"
+      - id: a2
+        layout: bild
+        bild: images/dish-goi-xoai.jpg
+        alt: "Gỏi Xoài – Mangosalat"
+        code: A2
+        name: "GỎI XOÀI"
+        text_de: "Mangosalat mit hausgemachter Fischsauce<br/>oder veganer Sauce"
+        text_en: "Mango salad with homemade fish sauce<br/>or vegan sauce"
+        preis_leerzeile: true
+        tags_de: "vt · vg"
+        tags_en: "vt · vg"
+      - id: a3
+        layout: bild
+        bild: images/dish-goi-cuon.jpg
+        alt: "Gỏi Cuốn – frische Sommerrollen"
+        code: A3
+        name: "GỎI CUỐN"
+        text_de: "Sommerrollen mit Rind | Crevetten | Tofu"
+        text_en: "Summer rolls with beef | shrimp | tofu"
+        preis: "10 CHF"
+        preis_zusatz: "2 Stück"
+      - id: a4
+        layout: bild
+        bild: images/dish-cha-gio.jpg
+        alt: "Chả Giò / Nem – knusprige Frühlingsrollen"
+        code: A4
+        name: "NEM"
+        text_de: "Frühlingsrollen mit Fleisch<br/>oder Gemüse"
+        text_en: "Spring rolls with meat<br/>or vegetables"
+        preis: "7 CHF"
+        preis_zusatz: "2 Stück"
+
+  - id: b
+    i18n: catB
+    name_de: "Phở &amp; gebratene Nudeln"
+    name_en: "Phở &amp; fried noodles"
+    gerichte:
+      - id: b1
+        layout: bild
+        bild: images/dish-pho-kho.jpg
+        alt: "Phở Khô – Reisnudeln mit Rindfleisch an Hoisin-Sauce"
+        code: B1
+        name: "PHỞ KHÔ"
+        text_de: "Reisnudeln mit Rindfleisch an Hoisin-Sauce"
+        text_en: "Rice noodles with beef in hoisin sauce"
+        preis: "19 CHF"
+      - id: b2
+        layout: bild
+        bild: images/dish-pho.jpg
+        alt: "Phở – vietnamesische Nudelsuppe"
+        code: B2
+        name: "PHỞ SÚP"
+        text_de: "Vietnamesische Nudelsuppe<br/>mit Rind | Poulet | Tofu"
+        text_en: "Vietnamese noodle soup<br/>with beef | chicken | tofu"
+        preis: "22 CHF"
+      - id: b3
+        layout: bild
+        bild: images/dish-pho-xao.jpg
+        alt: "Phở Xào – gebratene Reisnudeln"
+        code: B3
+        name: "PHỞ XÀO"
+        text_de: "Gebratene Reisnudeln<br/>mit Rind | Poulet | Crevetten | Ente | Tofu"
+        text_en: "Fried rice noodles<br/>with beef | chicken | shrimp | duck | tofu"
+        preis: "20 CHF"
+      - id: b4
+        layout: bild
+        bild: images/dish-banh-canh-xao.jpg
+        alt: "Bánh Canh Xào – gebratene Udon-Nudeln"
+        code: B4
+        name: "BÁNH CANH XÀO"
+        text_de: "Gebratene Udon-Nudeln mit<br/>Rind | Poulet | Crevetten | Ente | Tofu"
+        text_en: "Fried udon noodles with<br/>beef | chicken | shrimp | duck | tofu"
+        preis_leerzeile: true
+        tags_de: "vt"
+        tags_en: "vt"
+
+  - id: c
+    i18n: catC
+    name_de: "Bún – Reisnudeln"
+    name_en: "Bún – rice noodles"
+    gerichte:
+      - id: c1
+        layout: bild
+        bild: images/dish-bun-bo-nam-bo.jpg
+        alt: "Bún Bò Nam Bộ – Reisnudeln mit Zitronengras-Rind"
+        code: C1
+        name: "BÚN BÒ NAM BỘ"
+        text_de: "Reisnudeln mit Zitronengras<br/>und Rind | Poulet | Ente"
+        text_en: "Rice noodles with lemongrass<br/>and beef | chicken | duck"
+        preis_leerzeile: true
+      - id: c1c
+        layout: bild
+        bild: images/dish-bun-bo-nam-bo-chay.jpg
+        alt: "Bún Bò Nam Bộ Chay – vegetarisch mit Tofu"
+        code: C1
+        name: "BÚN BÒ NAM BỘ CHAY"
+        text_de: "Reisnudeln mit Zitronengras und Tofu"
+        text_en: "Rice noodles with lemongrass and tofu"
+        preis_leerzeile: true
+        tags_de: "vegetarisch"
+        tags_en: "vegetarian"
+      - id: c2
+        layout: bild
+        bild: images/dish-bun-chao-tom.jpg
+        alt: "Bún Chạo Tôm – Crevettenteig am Zuckerrohr"
+        code: C2
+        name: "BÚN CHẠO TÔM"
+        text_de: "Reisnudeln mit<br/>Crevettenteig an Zuckerrohr"
+        text_en: "Rice noodles with<br/>shrimp paste on sugar cane"
+        preis_leerzeile: true
+      - id: c3
+        layout: bild
+        bild: images/dish-bun-cha-gio.jpg
+        alt: "Bún Chả Giò – Reisnudeln mit Frühlingsrollen"
+        code: C3
+        name: "BÚN CHẢ GIÒ"
+        text_de: "Reisnudeln und Frühlingsrollen<br/>mit Fleisch oder Gemüse"
+        text_en: "Rice noodles and spring rolls<br/>with meat or vegetables"
+        preis: "18 CHF"
+      - id: c4
+        layout: bild
+        bild: images/dish-bun-la-lot.jpg
+        alt: "Bún Bò Lá Lốt – Rindfleisch im Pfefferblatt"
+        code: C4
+        name: "BÚN BÒ LÁ LỐT"
+        text_de: "Reisnudeln mit Rindfleisch im Pfefferblatt"
+        text_en: "Rice noodles with beef in pepper leaves"
+        preis: "21 CHF"
+
+  - id: d
+    i18n: catD
+    name_de: "Curry"
+    name_en: "Curry"
+    gerichte:
+      - id: d1
+        layout: bild
+        bild: images/dish-cari-xoai.jpg
+        alt: "Càri Xoài – Mangocurry"
+        code: D1
+        name: "CARI XOÀI"
+        text_de: "Mangocurry<br/>mit Poulet | Ente | Tofu"
+        text_en: "Mango curry<br/>with chicken | duck | tofu"
+        preis_leerzeile: true
+      - id: d2
+        layout: bild
+        bild: images/dish-cari-dau-phong.jpg
+        alt: "Càri Đậu Phộng – Erdnusscurry"
+        code: D2
+        name: "CARI ĐÂU PHỘNG"
+        text_de: "Erdnusscurry"
+        text_en: "Peanut curry"
+        preis_leerzeile: true
+      - id: d3
+        layout: bild
+        bild: images/dish-cari-vang.jpg
+        alt: "Càri Vàng – gelbes Curry"
+        code: D3
+        name: "CARI VÀNG"
+        text_de: "Gelbes Curry<br/>mit Rind | Poulet | Ente | Tofu"
+        text_en: "Yellow curry<br/>with beef | chicken | duck | tofu"
+        preis_leerzeile: true

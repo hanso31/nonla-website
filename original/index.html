@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nón Lá — Vietnamese Kitchen · Basel</title>
+  <meta name="description" content="Nón Lá – authentische vietnamesische Küche in Basel. Kitchen Spalenbrunnen, Streetfood Alte Markthalle und Corner Klara. Speisekarten, Take Away, Catering, Reservationen." />
+  <link rel="icon" type="image/png" href="images/logo-original.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles-v2.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Nón Lá – zur Startseite">
+        <img src="images/logo-original.png" alt="Nón Lá Vietnamese Kitchen – Logo" />
+      </a>
+
+      <nav class="nav__links" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="nav.home" aria-current="page">Start</a>
+        <div class="nav__item">
+          <a href="speisekarte-markthalle.html" data-i18n="nav.menus">Speisekarten <span class="caret" aria-hidden="true">▾</span></a>
+          <div class="dropdown" role="menu" aria-label="Speisekarten">
+            <a href="speisekarte-markthalle.html"><span data-i18n="nav.menu1">Alte Markthalle</span> <span>Streetfood</span></a>
+            <a href="speisekarte-spalenbrunnen-mittag.html"><span data-i18n="nav.menu2">Spalenbrunnen mittags</span> <span>Mo–Fr</span></a>
+            <a href="speisekarte-spalenbrunnen-abend.html"><span data-i18n="nav.menu3">Spalenbrunnen abends</span> <span>Sa ganztags</span></a>
+            <a href="speisekarte-klara.html"><span data-i18n="nav.menu4">Klara</span> <span>Corner</span></a>
+          </div>
+        </div>
+        <a href="bestellen.html" data-i18n="nav.order">Bestellen</a>
+        <a href="index.html#ueber-uns" data-i18n="nav.about">Über uns</a>
+        <a href="index.html#catering" data-i18n="nav.catering">Catering</a>
+        <a href="index.html#standorte" data-i18n="nav.locations">Standorte</a>
+        <a href="index.html#kontakt" data-i18n="nav.contact">Kontakt</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Sprache wählen">
+          <button class="lang__btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn--primary nav__cta" href="reservieren.html" data-i18n="nav.reserve">Tisch reservieren</a>
+        <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile Navigation">
+      <a href="index.html" data-i18n="nav.home">Start</a>
+      <a href="speisekarte-markthalle.html" data-i18n="nav.menu1">Alte Markthalle</a>
+      <a href="speisekarte-spalenbrunnen-mittag.html" data-i18n="nav.menu2">Spalenbrunnen mittags</a>
+      <a href="speisekarte-spalenbrunnen-abend.html" data-i18n="nav.menu3">Spalenbrunnen abends</a>
+      <a href="speisekarte-klara.html" data-i18n="nav.menu4">Klara</a>
+      <a href="bestellen.html" data-i18n="nav.order">Bestellen</a>
+      <a href="index.html#ueber-uns" data-i18n="nav.about">Über uns</a>
+      <a href="index.html#catering" data-i18n="nav.catering">Catering</a>
+      <a href="index.html#standorte" data-i18n="nav.locations">Standorte</a>
+      <a href="index.html#kontakt" data-i18n="nav.contact">Kontakt</a>
+      <a class="btn btn--primary" href="reservieren.html" data-i18n="nav.reserve">Tisch reservieren</a>
+      <div class="lang" role="group" aria-label="Sprache wählen">
+        <button class="lang__btn is-active" data-lang="de" aria-pressed="true">DE</button>
+        <button class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">Nón Lá</div>
+      <div class="hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Vietnamesische Küche · Basel</p>
+          <h1 class="hero__title">
+            <span data-i18n="hero.t1">Ein Stück</span>
+            <em data-i18n="hero.t2">Vietnam</em>
+            <span data-i18n="hero.t3">mitten in Basel.</span>
+          </h1>
+          <p class="hero__lead" data-i18n="hero.lead">Frisch, aromatisch und hausgemacht – bei Nón Lá geniessen Sie authentische vietnamesische Küche. Am Spalenbrunnen, in der Alten Markthalle und im Klara.</p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="reservieren.html" data-i18n="hero.cta1">Tisch reservieren</a>
+            <a class="btn btn--ghost btn--lg" href="speisekarte-markthalle.html" data-i18n="hero.cta2">Speisekarten entdecken</a>
+          </div>
+
+          <div class="hero__status" id="open-status" role="status">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="open-status-text">…</span>
+          </div>
+
+          <ul class="hero__facts">
+            <li data-i18n="hero.fact1"><strong>Mittagsbuffet</strong> Mo bis Fr</li>
+            <li data-i18n="hero.fact2"><strong>Take Away</strong> −10% Rabatt</li>
+            <li data-i18n="hero.fact3"><strong>Lieferung</strong> über velogourmet, eat.ch & Uber Eats</li>
+          </ul>
+        </div>
+
+        <div class="hero__media reveal">
+          <figure class="hero__figure">
+            <img src="images/hero-restaurant.jpg" alt="Phở mit Frühlingsrollen, frischen Kräutern und Reisnudeln" />
+          </figure>
+
+          <div class="hero__card">
+            <p class="hero__card-title" data-i18n="hero.card-title">Drei Orte, ein Geschmack</p>
+            <p class="hero__card-text" data-i18n="hero.card-text">Kitchen Spalenbrunnen · Streetfood Markthalle · Corner Klara</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span data-i18n="mq.1">Authentisch vietnamesisch</span><i></i>
+        <span data-i18n="mq.2">Mittagsbuffet Mo bis Fr</span><i></i>
+        <span data-i18n="mq.3">Take Away −10%</span><i></i>
+        <span data-i18n="mq.4">Catering für Ihren Anlass</span><i></i>
+        <span data-i18n="mq.5">Frisch & hausgemacht</span><i></i>
+        <span data-i18n="mq.1">Authentisch vietnamesisch</span><i></i>
+        <span data-i18n="mq.2">Mittagsbuffet Mo bis Fr</span><i></i>
+        <span data-i18n="mq.3">Take Away −10%</span><i></i>
+        <span data-i18n="mq.4">Catering für Ihren Anlass</span><i></i>
+        <span data-i18n="mq.5">Frisch & hausgemacht</span><i></i>
+      </div>
+    </div>
+
+    <!-- ============ ÜBER UNS ============ -->
+    <section class="section about" id="ueber-uns">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <figure class="about__figure">
+            <img src="images/about.png" alt="Koch von Nón Lá hinter dem Tresen in der Alten Markthalle" />
+          </figure>
+          <div class="about__hat-card">
+            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true">
+              <path d="M8 98 Q100 -8 192 98" />
+              <path d="M8 98 Q100 120 192 98" />
+              <path d="M100 10 L20 96 M100 10 L55 103 M100 10 L100 108 M100 10 L145 103 M100 10 L180 96" stroke-width="3" opacity=".6"/>
+            </svg>
+            <p data-i18n="about.hat">Der «Nón Lá» – der traditionelle Kegelhut aus Bambus und Palmblättern, ein Wahrzeichen Vietnams.</p>
+          </div>
+        </div>
+
+        <div class="about__text reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Über uns</p>
+          <h2 class="section__title" data-i18n="about.title">Chào & herzlich willkommen.</h2>
+          <p data-i18n="about.p1">Nón Lá ist in Basel zu Hause – im eindrucksvollen, einzigartigen Ambiente der Alten Markthalle, am Spalenbrunnen und im Klara zwischen Messe und Claraplatz. Bei uns finden Sie an allen drei Standorten eine grosse Auswahl an frisch zubereiteten, authentischen vietnamesischen Speisen.</p>
+          <p data-i18n="about.p2">Über Mittag (Mo bis Fr) erwartet Sie ein abwechslungsreiches Buffet. Unsere beliebten Fried Noodles stellen Sie nach Ihrem persönlichen Geschmack zusammen.</p>
+          <div class="about__quote">
+            <p data-i18n="about.quote">«Er wird von Menschen getragen, die im Freien arbeiten – zum Schutz vor Sonne und Regen.»</p>
+            <cite data-i18n="about.quote-by">Über den Namen Nón Lá</cite>
+          </div>
+          <div class="menu-actions">
+            <a class="btn btn--outline" href="mailto:info@nonla.ch">info@nonla.ch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ANGEBOT (Aktuelles) ============ -->
+    <section class="section offer" id="angebot">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="offer.eyebrow">Aktuelles & Angebot</p>
+          <h2 class="section__title" data-i18n="offer.title">Mittag & Abend</h2>
+          <p class="section__sub" data-i18n="offer.sub">Ob schnelles Mittagessen, gemütlicher Abend oder zuhause: Nón Lá ist flexibel. Die Küche schliesst jeweils eine halbe Stunde vor Schluss.</p>
+        </div>
+
+        <div class="offer__grid">
+          <article class="offer-card reveal">
+            <div class="offer-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="24" cy="15" r="5.5"/><path d="M24 4.5v3M13.8 8.6l2.1 2.1M34.2 8.6l-2.1 2.1M8 20h32"/><path d="M10 27c0 7 6.3 11 14 11s14-4 14-11"/><path d="M17 40.5c2 1.6 4.5 2.4 7 2.4s5-.8 7-2.4"/></svg>
+            </div>
+            <h3 data-i18n="offer.lunch-title">Mittagsangebot</h3>
+            <p data-i18n="offer.lunch-text">Mo bis Fr abwechslungsreiches Buffet und kleine Karte – frisch, schnell und sättigend. Selbstbedienung an der Theke.</p>
+            <div class="offer-card__links">
+              <a class="link-arrow" href="speisekarte-spalenbrunnen-mittag.html" data-i18n="offer.lunch-menu">Mittagskarte Spalenbrunnen</a>
+            </div>
+            <div class="offer-card__partners">
+              <span data-i18n="offer.more">Weitere Mittagskarten</span>
+              <div class="chips">
+                <a class="chip" href="speisekarte-markthalle.html" data-i18n="loc.2.name-short">Markthalle</a>
+                <a class="chip" href="speisekarte-klara.html">Klara</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer-card offer-card--dark reveal">
+            <div class="offer-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M31 6a13 13 0 1 0 11 19A13.5 13.5 0 0 1 31 6Z"/><path d="M7 33h34"/><path d="M13 33c0 5.5 5 8 12 8s12-2.5 12-8"/></svg>
+            </div>
+            <h3 data-i18n="offer.dinner-title">Abendangebot</h3>
+            <p data-i18n="offer.dinner-text">Am Abend und Samstag serviert unser Team à la carte an den Tisch – und für Zuhause gibt es <strong>10% Rabatt</strong> auf Take Away.</p>
+            <div class="offer-card__links">
+              <a class="link-arrow" href="speisekarte-spalenbrunnen-abend.html" data-i18n="offer.dinner-menu">Abendkarte Spalenbrunnen</a>
+            </div>
+            <div class="offer-card__partners">
+              <span data-i18n="offer.order">Online bestellen</span>
+              <div class="chips">
+                <a class="chip" href="bestellen.html" data-i18n="offer.order-chip">Zum Bestellportal</a>
+              </div>
+            </div>
+            <div class="offer-card__partners">
+              <span data-i18n="offer.dinner-more">Weitere Abendkarten</span>
+              <div class="chips">
+                <a class="chip" href="speisekarte-markthalle.html" data-i18n="loc.2.name-short">Markthalle</a>
+                <a class="chip" href="speisekarte-klara.html">Klara</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- ============ STANDORTE ============ -->
+    <section class="section locations" id="standorte">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="loc.eyebrow">Standorte</p>
+          <h2 class="section__title" data-i18n="loc.title">Drei Orte in Basel</h2>
+          <p class="section__sub" data-i18n="loc.sub">Ob Restaurant, Streetfood-Stand oder Food-Corner – Nón Lá ist an drei zentralen Orten in Basel für Sie da.</p>
+        </div>
+
+        <div class="locations__grid">
+          <article class="location reveal">
+            <figure class="location__media">
+              <img src="images/loc2.jpeg" alt="Innenraum des Restaurants Nón Lá Spalenbrunnen mit geflochtener Kegelhut-Decke" />
+              <span class="location__tag" data-i18n="loc.1.tag">Restaurant</span>
+            </figure>
+            <div class="location__body">
+              <h3 data-i18n="loc.1.name">Vietnamese Kitchen Spalenbrunnen</h3>
+              <p class="location__addr">Schützenmattstrasse 1<br />4051 Basel</p>
+              <a class="location__tel" href="tel:+41615061177">061 506 11 77</a>
+              <ul class="hours">
+                <li><span data-i18n="days.mofr">Mo – Fr</span><b>11:30 – 14:00</b></li>
+                <li><span data-i18n="days.modo">Mo – Do</span><b>18:00 – 22:00</b></li>
+                <li><span data-i18n="days.fr">Fr</span><b>18:00 – 22:30</b></li>
+                <li><span data-i18n="days.sa">Sa</span><b>12:00 – 22:30</b></li>
+                <li><span data-i18n="days.so">So</span><b data-i18n="loc.closed">geschlossen</b></li>
+              </ul>
+              <p class="location__note" data-i18n="loc.1.note">Reservationen gerne für den Abend und Samstagmittag.</p>
+              <div class="menu-actions" style="margin-top:0">
+                <a class="btn btn--outline" href="reservieren.html" data-i18n="loc.1.cta">Tisch reservieren</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="location reveal">
+            <figure class="location__media">
+              <img src="images/markthalle.jpg" alt="Nón Lá Streetfood-Stand in der Alten Markthalle Basel" />
+              <span class="location__tag" data-i18n="loc.2.tag">Streetfood</span>
+            </figure>
+            <div class="location__body">
+              <h3 data-i18n="loc.2.name">Vietnamese Streetfood Alte Markthalle</h3>
+              <p class="location__addr">Viaduktstrasse 12<br />4051 Basel</p>
+              <span class="location__tel location__tel--muted" data-i18n="loc.2.min">3 Min. vom Bahnhof SBB</span>
+              <ul class="hours">
+                <li><span data-i18n="days.mo">Mo</span><b>11:30 – 14:00</b></li>
+                <li><span data-i18n="days.disa">Di – Sa</span><b>11:30 – 14:00 · 18:00 – 21:30</b></li>
+                <li><span data-i18n="days.so">So</span><b>11:30 – 16:00</b></li>
+              </ul>
+              <p class="location__note" data-i18n="loc.2.note">Reservationen direkt über die Markthalle. Feiertage gemäss Markthalle-Öffnungszeiten.</p>
+              <a class="btn btn--outline" href="speisekarte-markthalle.html" data-i18n="loc.2.cta">Speisekarte ansehen</a>
+            </div>
+          </article>
+
+          <article class="location reveal">
+            <figure class="location__media">
+              <img src="images/loc3.jpg" alt="Nón Lá Corner im Klara Basel mit Bambuslampen und Logo-Leuchtkasten" />
+              <span class="location__tag" data-i18n="loc.3.tag">Corner</span>
+            </figure>
+            <div class="location__body">
+              <h3 data-i18n="loc.3.name">Vietnamese Corner Klara</h3>
+              <p class="location__addr">Clarastrasse 13<br />4058 Basel</p>
+              <span class="location__tel location__tel--muted" data-i18n="loc.3.min">Im Klara Basel</span>
+              <ul class="hours">
+                <li><span data-i18n="days.mofr">Mo – Fr</span><b>11:30 – 14:00 · 18:00 – 21:30</b></li>
+                <li><span data-i18n="days.saso">Sa – So</span><b>11:30 – 21:30</b></li>
+              </ul>
+              <p class="location__note" data-i18n="loc.3.note">Feiertage gemäss Öffnungszeiten Klara.</p>
+              <a class="btn btn--outline" href="speisekarte-klara.html" data-i18n="loc.3.cta">Speisekarte ansehen</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="locations__hint reveal" data-i18n="loc.hint">Die Küche schliesst jeweils eine halbe Stunde vor Schluss.</p>
+
+        <div class="menu-legend reveal">
+          <span data-i18n="loc.feedback">Wir freuen uns auf Ihr Feedback – am liebsten natürlich positiv. Wenn Ihnen etwas nicht geschmeckt oder unser Service nicht Ihren Ansprüchen entsprochen hat, sagen Sie es uns gerne:</span>
+          <a class="link-arrow" href="mailto:feedback@nonla.ch">feedback@nonla.ch</a>
+        </div>
+      </div>
+    </section>
+
+    
+      
+
+  </main>
+
+  <!-- ============ FOOTER / KONTAKT ============ -->
+  <footer class="footer" id="kontakt">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img class="footer__logo" src="images/logo-original.png" alt="Nón Lá Vietnamese Kitchen – Logo" />
+        <p class="footer__tag" data-i18n="ft.tag">Vietnamese Kitchen · Streetfood · Corner — Basel</p>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/nonlabasel" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8.3v3h2.4v7h2.8Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/nonla_basel/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="ft.menus">Speisekarten</h4>
+        <a href="speisekarte-markthalle.html" data-i18n="nav.menu1">Alte Markthalle</a>
+        <a href="speisekarte-spalenbrunnen-mittag.html" data-i18n="nav.menu2">Spalenbrunnen mittags</a>
+        <a href="speisekarte-spalenbrunnen-abend.html" data-i18n="nav.menu3">Spalenbrunnen abends</a>
+        <a href="speisekarte-klara.html" data-i18n="nav.menu4">Klara</a>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="ft.contact">Kontakt</h4>
+        <a href="mailto:info@nonla.ch">info@nonla.ch</a>
+        <a href="mailto:feedback@nonla.ch">feedback@nonla.ch</a>
+        <a href="tel:+41615061177">+41 61 506 11 77</a>
+        <a href="bestellen.html" data-i18n="nav.order">Bestellen</a>
+        <a href="reservieren.html" data-i18n="nav.reserve">Tisch reservieren</a>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="ft.visit">Standorte</h4>
+        <a href="index.html#standorte" data-i18n="ft.s1">Kitchen Spalenbrunnen</a>
+        <a href="index.html#standorte" data-i18n="ft.s2">Streetfood Markthalle</a>
+        <a href="index.html#standorte" data-i18n="ft.s3">Corner Klara</a>
+        <a href="index.html#catering" data-i18n="nav.catering">Catering</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 Nón Lá Vietnamese Kitchen · Streetfood · Corner</p>
+      <p data-i18n="ft.credits">Fotos: Antonio Mollo (fotostudio71.ch), Yasser Booley · Original-Design: foliis.ch · Redesign-Konzept</p>
+    </div>
+  </footer>
+
+  <script src="script-v2.js"></script>
+</body>
+</html>

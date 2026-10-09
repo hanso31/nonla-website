@@ -1,0 +1,60 @@
+# ==========================================================================
+# OEFFNUNGSZEITEN – Anzeige auf der Startseite, Bestellzeiten, Status
+# --------------------------------------------------------------------------
+# standorte:   Die sichtbaren Oeffnungszeiten-Listen auf der Startseite.
+#              - tage:  Schluessel fuer den Wochentag (NICHT aendern)
+#              - zeit:  angezeigte Zeit, z. B. "11:30 – 14:00"
+#              - statt "zeit" kann "geschlossen: true" stehen (Ruhetag)
+# bestellzeiten: Die Tabelle "Bestellzeiten Spalenbrunnen" auf der Seite
+#              "Online bestellen" (gleiches Format).
+# status:      Steuert die automatische Anzeige "Jetzt geoeffnet /
+#              Geschlossen" auf der Startseite (Kueche Spalenbrunnen).
+#              Format pro Wochentag: "HH:MM-HH:MM" oder mehrere Spannen
+#              mit Komma: "11:30-14:00, 18:00-22:00". Leer ("") =
+#              geschlossen. Hier Doppelpunkt und Bindestrich verwenden!
+# ==========================================================================
+
+standorte:
+  spalenbrunnen:
+    zeilen:
+    - tage: days.mofr
+      zeit: 11:30 – 14:00
+    - tage: days.modo
+      zeit: 18:00 – 22:00
+    - tage: days.fr
+      zeit: 18:00 – 22:30
+    - tage: days.sa
+      zeit: 12:00 – 22:30
+    - tage: days.so
+      geschlossen: true
+  markthalle:
+    zeilen:
+    - tage: days.mo
+      zeit: 11:30 – 14:00
+    - tage: days.disa
+      zeit: 11:30 – 14:00 · 18:00 – 21:30
+    - tage: days.so
+      zeit: 11:30 – 16:00
+  klara:
+    zeilen:
+    - tage: days.mofr
+      zeit: 11:30 – 14:00 · 18:00 – 21:30
+    - tage: days.saso
+      zeit: 11:30 – 21:30
+bestellzeiten:
+- tage: days.mofr
+  zeit: 11.30 – 14.00
+- tage: days.modo
+  zeit: 18.00 – 21.30
+- tage: days.fr
+  zeit: 18.00 – 22.00
+- tage: days.sa
+  zeit: 12.00 – 22.00
+status:
+  so: ''
+  mo: 11:30-14:00, 18:00-22:00
+  di: 11:30-14:00, 18:00-22:00
+  mi: 11:30-14:00, 18:00-22:00
+  do: 11:30-14:00, 18:00-22:00
+  fr: 11:30-14:00, 18:00-22:30
+  sa: 12:00-22:30

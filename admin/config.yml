@@ -1,0 +1,399 @@
+# ==========================================================================
+# Decap CMS – Konfiguration für die Nón Lá-Website
+# --------------------------------------------------------------------------
+# Diese Datei steuert das Bearbeitungs-Formular unter /admin.
+# Sie wird nur vom CMS gelesen; die Inhalte liegen im Ordner content/.
+# ==========================================================================
+
+backend:
+  name: github
+  # GitHub-Benutzername und Repositoryname eintragen, z. B.:
+  # repo: mein-benutzer/nonla-website
+  repo: BITTE-EINTRAGEN/nonla-website
+  branch: main
+  # Adresse des OAuth-Proxy (Cloudflare Worker) aus Schritt 3 der README
+  base_url: https://BITTE-EINTRAGEN.workers.dev
+
+locale: de
+
+# Bilder landen im Ordner images/ und werden von dort verlinkt.
+media_folder: images
+public_folder: images
+
+collections:
+
+  # ------------------------------------------------------------------------
+  - name: buffet
+    label: Wochenbuffet (Mo–Fr)
+    description: Mittagsbuffet Spalenbrunnen – die Gerichte der Wochenkarte.
+    files:
+      - name: buffet
+        label: Wochenbuffet bearbeiten
+        file: content/buffet.yml
+        fields:
+          - label: Wochentage
+            name: tage
+            widget: list
+            allow_add: false
+            label_singular: Tag
+            summary: "{{fields.tag_de}}"
+            fields:
+              - {label: "Kürzel (bitte nicht ändern)", name: id, widget: hidden}
+              - {label: "Tag (deutsch)", name: tag_de, widget: string}
+              - {label: "Tag (englisch)", name: tag_en, widget: string}
+              - {label: "Preiszeile", name: preis, widget: string, hint: "Wird unter den Gerichten angezeigt, z. B. 17.– | 18.– CHF"}
+              - label: Gerichte
+                name: gerichte
+                widget: list
+                label_singular: Gericht
+                summary: "{{fields.de}}"
+                minimize_collapsed: true
+                fields:
+                  - {label: "Gericht (deutsch)", name: de, widget: string}
+                  - {label: "Gericht (englisch)", name: en, widget: string}
+                  - {label: "Unterzeile (deutsch)", name: sub_de, widget: string, hint: "z. B. «mit Rind, Poulet, Ente oder Tofu»"}
+                  - {label: "Unterzeile (englisch)", name: sub_en, widget: string}
+
+  # ------------------------------------------------------------------------
+  - name: speisekarte_markthalle
+    label: Speisekarte Alte Markthalle
+    files:
+      - name: markthalle
+        label: Alte Markthalle bearbeiten
+        file: content/speisekarte-markthalle.yml
+        fields:
+          - {label: Präfix, name: prefix, widget: hidden}
+          - {label: Codes, name: codes, widget: hidden}
+          - label: Texte der Seite
+            name: texte
+            widget: object
+            collapsed: true
+            fields:
+              - {label: "Brotkrume", name: crumb, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Überzeile (Eyebrow)", name: eyebrow, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Titel", name: title, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Einleitung", name: lead, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Legende vgm", name: legend1, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Legende glutenfrei", name: legend2, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Button «Online bestellen»", name: order, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Button «Alle Standorte»", name: all-loc, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+          - label: Kategorien und Gerichte
+            name: kategorien
+            widget: list
+            allow_add: false
+            label_singular: Kategorie
+            summary: "{{fields.name_de}}"
+            minimize_collapsed: true
+            fields:
+              - {label: "Kürzel (bitte nicht ändern)", name: id, widget: hidden}
+              - {label: "i18n (bitte nicht ändern)", name: i18n, widget: hidden, required: false}
+              - {label: "Name (deutsch)", name: name_de, widget: string, required: false}
+              - {label: "Name (englisch)", name: name_en, widget: string, required: false}
+              - label: Gerichte
+                name: gerichte
+                widget: list
+                label_singular: Gericht
+                summary: "{{fields.code}} {{fields.name}}"
+                minimize_collapsed: true
+                fields:
+                  - {label: "Schlüssel (eindeutig, nur Kleinbuchstaben – z. B. a5)", name: id, widget: string}
+                  - {label: "Darstellung", name: layout, widget: select, options: [{label: "Mit Bild", value: bild}, {label: "Ohne Bild", value: einfach}], default: bild}
+                  - {label: Bild, name: bild, widget: image, required: false}
+                  - {label: "Bildbeschreibung (alt)", name: alt, widget: string, required: false}
+                  - {label: "Code (z. B. A1)", name: code, widget: string, required: false}
+                  - {label: "Name (vietnamesisch, Grossbuchstaben)", name: name, widget: string}
+                  - {label: "Beschreibung (deutsch)", name: text_de, widget: text}
+                  - {label: "Beschreibung (englisch)", name: text_en, widget: text}
+                  - {label: "Preis (leer lassen = keine Preiszeile)", name: preis, widget: string, required: false, hint: "z. B. 15 CHF oder 15.50 | 16.50 CHF"}
+                  - {label: "Preis-Zusatz (klein gedruckt)", name: preis_zusatz, widget: string, required: false, hint: "z. B. 2 Stück"}
+                  - {label: "Leere Preiszeile (Abstandshalter)", name: preis_leerzeile, widget: boolean, required: false, default: false}
+                  - {label: "Hinweiszeile (deutsch)", name: tags_de, widget: string, required: false, hint: "z. B. vt · vg"}
+                  - {label: "Hinweiszeile (englisch)", name: tags_en, widget: string, required: false}
+                  - {label: "Verschachtelte Schlüssel (bitte nicht ändern)", name: tags_extra, widget: hidden, required: false}
+                  - {label: "Varianten (bitte nicht ändern)", name: varianten, widget: hidden, required: false}
+
+  # ------------------------------------------------------------------------
+  - name: speisekarte_klara
+    label: Speisekarte Klara
+    files:
+      - name: klara
+        label: Klara bearbeiten
+        file: content/speisekarte-klara.yml
+        fields:
+          - {label: Präfix, name: prefix, widget: hidden}
+          - {label: Codes, name: codes, widget: hidden}
+          - label: Texte der Seite
+            name: texte
+            widget: object
+            collapsed: true
+            fields:
+              - {label: "Kategorietitel", name: cat, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Brotkrume", name: crumb, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Überzeile (Eyebrow)", name: eyebrow, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Einleitung", name: lead, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Titel", name: title, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+          - label: Kategorien und Gerichte
+            name: kategorien
+            widget: list
+            allow_add: false
+            label_singular: Kategorie
+            summary: "{{fields.id}}"
+            fields:
+              - {label: "Kürzel (bitte nicht ändern)", name: id, widget: hidden}
+              - {label: "i18n (bitte nicht ändern)", name: i18n, widget: hidden, required: false}
+              - {label: "Name (deutsch)", name: name_de, widget: string, required: false}
+              - {label: "Name (englisch)", name: name_en, widget: string, required: false}
+              - label: Gerichte
+                name: gerichte
+                widget: list
+                label_singular: Gericht
+                summary: "{{fields.name}}"
+                minimize_collapsed: true
+                fields:
+                  - {label: "Schlüssel (eindeutig, nur Kleinbuchstaben – z. B. d8)", name: id, widget: string}
+                  - {label: "Darstellung", name: layout, widget: select, options: [{label: "Mit Bild", value: bild}, {label: "Ohne Bild", value: einfach}], default: bild}
+                  - {label: Bild, name: bild, widget: image, required: false}
+                  - {label: "Bildbeschreibung (alt)", name: alt, widget: string, required: false}
+                  - {label: "Code", name: code, widget: string, required: false}
+                  - {label: "Name (vietnamesisch, Grossbuchstaben)", name: name, widget: string}
+                  - {label: "Beschreibung (deutsch)", name: text_de, widget: text}
+                  - {label: "Beschreibung (englisch)", name: text_en, widget: text}
+                  - {label: "Preis (leer lassen = keine Preiszeile)", name: preis, widget: string, required: false, hint: "z. B. 9 CHF"}
+                  - {label: "Preis-Zusatz (klein gedruckt)", name: preis_zusatz, widget: string, required: false, hint: "z. B. 2 Stück"}
+                  - {label: "Leere Preiszeile (Abstandshalter)", name: preis_leerzeile, widget: boolean, required: false, default: false}
+                  - {label: "Hinweiszeile (deutsch)", name: tags_de, widget: string, required: false, hint: "z. B. vt · vg"}
+                  - {label: "Hinweiszeile (englisch)", name: tags_en, widget: string, required: false}
+                  - {label: "Verschachtelte Schlüssel (bitte nicht ändern)", name: tags_extra, widget: hidden, required: false}
+                  - {label: "Varianten (bitte nicht ändern)", name: varianten, widget: hidden, required: false}
+
+  # ------------------------------------------------------------------------
+  - name: speisekarte_mittag
+    label: Speisekarte Spalenbrunnen mittags
+    description: Kleine Karte mittags – das Buffet wird separat unter «Wochenbuffet» gepflegt.
+    files:
+      - name: mittag
+        label: Spalenbrunnen mittags bearbeiten
+        file: content/speisekarte-spalenbrunnen-mittag.yml
+        fields:
+          - {label: Präfix, name: prefix, widget: hidden}
+          - {label: Codes, name: codes, widget: hidden}
+          - label: Texte der Seite
+            name: texte
+            widget: object
+            collapsed: true
+            fields:
+              - {label: "Brotkrume", name: crumb, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Überzeile (Eyebrow)", name: eyebrow, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Titel", name: title, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Einleitung", name: lead, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Konzept-Text", name: concept, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Hinweis «wechselnd»", name: changing, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Buffet-Titel", name: buffet-title, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Buffet-Hinweis", name: buffet-note, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Buffet-Unterzeile", name: buffet-sub, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Buffet-Serviert-Text", name: served, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Buffet-Legende", name: buffet-legend, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Titel «kleine Karte»", name: small-title, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Button «Zur Abendkarte»", name: to-evening, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+          - label: Kategorien und Gerichte
+            name: kategorien
+            widget: list
+            allow_add: false
+            label_singular: Kategorie
+            summary: "{{fields.id}}"
+            fields:
+              - {label: "Kürzel (bitte nicht ändern)", name: id, widget: hidden}
+              - {label: "i18n (bitte nicht ändern)", name: i18n, widget: hidden, required: false}
+              - {label: "Name (deutsch)", name: name_de, widget: string, required: false}
+              - {label: "Name (englisch)", name: name_en, widget: string, required: false}
+              - label: Gerichte
+                name: gerichte
+                widget: list
+                label_singular: Gericht
+                summary: "{{fields.name}}"
+                minimize_collapsed: true
+                fields:
+                  - {label: "Schlüssel (eindeutig, nur Kleinbuchstaben – z. B. d9)", name: id, widget: string}
+                  - {label: "Darstellung", name: layout, widget: select, options: [{label: "Mit Bild", value: bild}, {label: "Ohne Bild", value: einfach}], default: bild}
+                  - {label: Bild, name: bild, widget: image, required: false}
+                  - {label: "Bildbeschreibung (alt)", name: alt, widget: string, required: false}
+                  - {label: "Code", name: code, widget: string, required: false}
+                  - {label: "Name (vietnamesisch, Grossbuchstaben)", name: name, widget: string}
+                  - {label: "Beschreibung (deutsch)", name: text_de, widget: text}
+                  - {label: "Beschreibung (englisch)", name: text_en, widget: text}
+                  - {label: "Preis (leer lassen = keine Preiszeile)", name: preis, widget: string, required: false, hint: "z. B. 15.50 | 16.50 CHF"}
+                  - {label: "Preis-Zusatz (klein gedruckt)", name: preis_zusatz, widget: string, required: false, hint: "z. B. vt · vg"}
+                  - {label: "Leere Preiszeile (Abstandshalter)", name: preis_leerzeile, widget: boolean, required: false, default: false}
+                  - {label: "Hinweiszeile (deutsch)", name: tags_de, widget: string, required: false}
+                  - {label: "Hinweiszeile (englisch)", name: tags_en, widget: string, required: false}
+                  - {label: "Verschachtelte Schlüssel (bitte nicht ändern)", name: tags_extra, widget: hidden, required: false}
+                  - {label: "Varianten (bitte nicht ändern)", name: varianten, widget: hidden, required: false}
+
+  # ------------------------------------------------------------------------
+  - name: speisekarte_abend
+    label: Speisekarte Spalenbrunnen abends
+    files:
+      - name: abend
+        label: Spalenbrunnen abends bearbeiten
+        file: content/speisekarte-spalenbrunnen-abend.yml
+        fields:
+          - {label: Präfix, name: prefix, widget: hidden}
+          - {label: Codes, name: codes, widget: hidden}
+          - label: Texte der Seite
+            name: texte
+            widget: object
+            collapsed: true
+            fields:
+              - {label: "Brotkrume", name: crumb, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Überzeile (Eyebrow)", name: eyebrow, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Titel", name: title, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Einleitung", name: lead, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Notiz glutenfrei", name: note1, widget: object, fields: [{label: Deutsch, name: de, widget: text}, {label: Englisch, name: en, widget: text}]}
+              - {label: "Notiz MwSt.", name: note2, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Notiz Herkunft", name: note3, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Notiz WLAN", name: note4, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Original-Karte (Aufklapp-Titel)", name: original, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Button «Tisch reservieren»", name: reserve, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+              - {label: "Button «Zum Mittagsmenü»", name: to-lunch, widget: object, fields: [{label: Deutsch, name: de, widget: string}, {label: Englisch, name: en, widget: string}]}
+          - label: Kategorien und Gerichte
+            name: kategorien
+            widget: list
+            allow_add: false
+            label_singular: Kategorie
+            summary: "{{fields.name_de}}"
+            minimize_collapsed: true
+            fields:
+              - {label: "Kürzel (bitte nicht ändern)", name: id, widget: hidden}
+              - {label: "i18n (bitte nicht ändern)", name: i18n, widget: hidden, required: false}
+              - {label: "Vietnamesischer Titel (Doku)", name: titel_vi, widget: hidden, required: false}
+              - {label: "Name (deutsch)", name: name_de, widget: string, required: false}
+              - {label: "Name (englisch)", name: name_en, widget: string, required: false}
+              - label: Gerichte
+                name: gerichte
+                widget: list
+                label_singular: Gericht
+                summary: "{{fields.name}}"
+                minimize_collapsed: true
+                fields:
+                  - {label: "Schlüssel (eindeutig, nur Kleinbuchstaben – z. B. s9)", name: id, widget: string}
+                  - {label: "Darstellung", name: layout, widget: select, options: [{label: "Mit Bild", value: bild}, {label: "Ohne Bild", value: einfach}], default: einfach}
+                  - {label: Bild, name: bild, widget: image, required: false}
+                  - {label: "Bildbeschreibung (alt)", name: alt, widget: string, required: false}
+                  - {label: "Code", name: code, widget: string, required: false}
+                  - {label: "Name (vietnamesisch, Grossbuchstaben)", name: name, widget: string}
+                  - {label: "Beschreibung (deutsch)", name: text_de, widget: text}
+                  - {label: "Beschreibung (englisch)", name: text_en, widget: text}
+                  - {label: "Preis (leer lassen = keine Preiszeile)", name: preis, widget: string, required: false, hint: "z. B. 26.00"}
+                  - {label: "Preis-Zusatz (klein gedruckt)", name: preis_zusatz, widget: string, required: false, hint: "z. B. 1 | 2 Stück"}
+                  - {label: "Leere Preiszeile (Abstandshalter)", name: preis_leerzeile, widget: boolean, required: false, default: false}
+                  - {label: "Hinweiszeile (deutsch)", name: tags_de, widget: string, required: false}
+                  - {label: "Hinweiszeile (englisch)", name: tags_en, widget: string, required: false}
+                  - {label: "Verschachtelte Schlüssel (bitte nicht ändern)", name: tags_extra, widget: hidden, required: false}
+                  - label: Varianten
+                    name: varianten
+                    widget: list
+                    required: false
+                    label_singular: Variante
+                    summary: "{{fields.de}}"
+                    minimize_collapsed: true
+                    fields:
+                      - {label: "Text (deutsch)", name: de, widget: string}
+                      - {label: "Text (englisch)", name: en, widget: string}
+                      - {label: Preis, name: preis, widget: string}
+
+  # ------------------------------------------------------------------------
+  - name: texte
+    label: Texte übrige Seiten (DE/EN)
+    description: Navigation, Startseite, Bestellen, Reservieren, Catering, Fusszeile.
+    files:
+      - name: texte
+        label: Allgemeine Texte bearbeiten
+        file: content/texte.yml
+        fields:
+          - label: Texte
+            name: eintraege
+            widget: list
+            allow_add: false
+            label_singular: Text
+            summary: "{{fields.schluessel}}"
+            minimize_collapsed: true
+            fields:
+              - {label: "Schlüssel (bitte nicht ändern)", name: schluessel, widget: string}
+              - {label: Deutsch, name: de, widget: text, required: false}
+              - {label: Englisch, name: en, widget: text, required: false}
+
+  # ------------------------------------------------------------------------
+  - name: oeffnungszeiten
+    label: Öffnungszeiten
+    files:
+      - name: zeiten
+        label: Öffnungszeiten bearbeiten
+        file: content/oeffnungszeiten.yml
+        fields:
+          - label: Kitchen Spalenbrunnen (Startseite)
+            name: standorte
+            widget: object
+            fields:
+              - label: Kitchen Spalenbrunnen
+                name: spalenbrunnen
+                widget: object
+                collapsed: true
+                fields:
+                  - label: Zeilen
+                    name: zeilen
+                    widget: list
+                    label_singular: Zeile
+                    summary: "{{fields.tage}} – {{fields.zeit}}"
+                    fields:
+                      - {label: "Tage", name: tage, widget: select, options: [{label: "Mo", value: days.mo}, {label: "Mo – Fr", value: days.mofr}, {label: "Mo – Do", value: days.modo}, {label: "Fr", value: days.fr}, {label: "Sa", value: days.sa}, {label: "So", value: days.so}, {label: "Di – Sa", value: days.disa}, {label: "Sa – So", value: days.saso}]}
+                      - {label: "Zeit", name: zeit, widget: string, required: false, hint: "z. B. 11:30 – 14:00 (leer bei Ruhetag)"}
+                      - {label: "Geschlossen (Ruhetag)", name: geschlossen, widget: boolean, required: false, default: false}
+              - label: Streetfood Markthalle
+                name: markthalle
+                widget: object
+                collapsed: true
+                fields:
+                  - label: Zeilen
+                    name: zeilen
+                    widget: list
+                    label_singular: Zeile
+                    summary: "{{fields.tage}} – {{fields.zeit}}"
+                    fields:
+                      - {label: "Tage", name: tage, widget: select, options: [{label: "Mo", value: days.mo}, {label: "Mo – Fr", value: days.mofr}, {label: "Mo – Do", value: days.modo}, {label: "Fr", value: days.fr}, {label: "Sa", value: days.sa}, {label: "So", value: days.so}, {label: "Di – Sa", value: days.disa}, {label: "Sa – So", value: days.saso}]}
+                      - {label: "Zeit", name: zeit, widget: string, required: false, hint: "z. B. 11:30 – 14:00 (leer bei Ruhetag)"}
+                      - {label: "Geschlossen (Ruhetag)", name: geschlossen, widget: boolean, required: false, default: false}
+              - label: Corner Klara
+                name: klara
+                widget: object
+                collapsed: true
+                fields:
+                  - label: Zeilen
+                    name: zeilen
+                    widget: list
+                    label_singular: Zeile
+                    summary: "{{fields.tage}} – {{fields.zeit}}"
+                    fields:
+                      - {label: "Tage", name: tage, widget: select, options: [{label: "Mo", value: days.mo}, {label: "Mo – Fr", value: days.mofr}, {label: "Mo – Do", value: days.modo}, {label: "Fr", value: days.fr}, {label: "Sa", value: days.sa}, {label: "So", value: days.so}, {label: "Di – Sa", value: days.disa}, {label: "Sa – So", value: days.saso}]}
+                      - {label: "Zeit", name: zeit, widget: string, required: false, hint: "z. B. 11:30 – 14:00 (leer bei Ruhetag)"}
+                      - {label: "Geschlossen (Ruhetag)", name: geschlossen, widget: boolean, required: false, default: false}
+          - label: Bestellzeiten (Seite «Online bestellen»)
+            name: bestellzeiten
+            widget: list
+            label_singular: Zeile
+            summary: "{{fields.tage}} – {{fields.zeit}}"
+            fields:
+              - {label: "Tage", name: tage, widget: select, options: [{label: "Mo", value: days.mo}, {label: "Mo – Fr", value: days.mofr}, {label: "Mo – Do", value: days.modo}, {label: "Fr", value: days.fr}, {label: "Sa", value: days.sa}, {label: "So", value: days.so}, {label: "Di – Sa", value: days.disa}, {label: "Sa – So", value: days.saso}]}
+              - {label: "Zeit", name: zeit, widget: string, hint: "z. B. 11.30 – 14.00"}
+          - label: "Automatik «Jetzt geöffnet» (Spalenbrunnen)"
+            name: status
+            widget: object
+            collapsed: true
+            hint: "Format: HH:MM-HH:MM, mehrere Spannen mit Komma, leer = geschlossen"
+            fields:
+              - {label: Montag, name: mo, widget: string, required: false}
+              - {label: Dienstag, name: di, widget: string, required: false}
+              - {label: Mittwoch, name: mi, widget: string, required: false}
+              - {label: Donnerstag, name: do, widget: string, required: false}
+              - {label: Freitag, name: fr, widget: string, required: false}
+              - {label: Samstag, name: sa, widget: string, required: false}
+              - {label: Sonntag, name: so, widget: string, required: false}

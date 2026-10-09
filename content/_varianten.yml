@@ -1,0 +1,11 @@
+# Technische Datei – bitte NICHT bearbeiten und nicht loeschen.
+# Einige Seiten des Original-Designs enthalten denselben Text mit
+# minimal abweichender HTML-Schreibweise (Reihenfolge der Attribute
+# im Dropdown-Pfeil der Navigation). Damit der Build jede Seite
+# exakt wie das Original erzeugt, stehen diese Abweichungen hier.
+nav.menus:
+  catering.html: Speisekarten <span aria-hidden="true" class="caret">▾</span>
+  speisekarte-klara.html: Speisekarten <span aria-hidden="true" class="caret">▾</span>
+  speisekarte-markthalle.html: Speisekarten <span aria-hidden="true" class="caret">▾</span>
+  speisekarte-spalenbrunnen-abend.html: Speisekarten <span aria-hidden="true" class="caret">▾</span>
+  speisekarte-spalenbrunnen-mittag.html: Speisekarten <span aria-hidden="true" class="caret">▾</span>

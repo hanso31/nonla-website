@@ -1,0 +1,94 @@
+# =====================================================================
+# Speisekarte Klara – Inhalte
+# =====================================================================
+# Hier stehen alle Texte und Gerichte der Seite
+# "speisekarte-klara.html" (Vietnamese Corner im Klara Basel).
+#
+# So editierst du diese Datei:
+# - Jeder Eintrag hat einen deutschen ("de") und einen englischen
+#   ("en") Text. Texte immer in doppelten Anführungszeichen lassen.
+# - "<br/>" steht für einen Zeilenumbruch auf der Website und muss
+#   genau so stehen bleiben.
+# - "&amp;" ist das &-Zeichen und muss genau so stehen bleiben.
+# - Das Feld "id" bei Kategorien und Gerichten ist ein stabiler
+#   interner Schlüssel (steht z. B. als data-i18n="kk.d1" im HTML).
+#   Bitte NIEMALS ändern, sonst gehen die Übersetzungen verloren.
+# - d5 und d6 haben absichtlich KEINE Preiszeile (wie im Original).
+# - Bei "tags_de"/"tags_en" stehen die Abkürzungen:
+#   vt = vegetarisch, vg = vegan.
+#
+# Bilder liegen im Ordner images/ und werden hier nur verlinkt.
+
+prefix: kk
+codes: false   # diese Karte hat keine Code-Spalte
+
+texte:
+  cat: {de: "Speisekarte", en: "Menu"}
+  crumb: {de: "Speisekarte Klara", en: "Menu Klara"}
+  eyebrow: {de: "Corner · Take away", en: "Corner · Take away"}
+  lead: {de: "Unser Vietnamese Corner im Klara Basel – frische vietnamesische Küche zum Mitnehmen, zwischen Messe Basel und Claraplatz.", en: "Our Vietnamese corner at Klara Basel – fresh Vietnamese cuisine to take away, between Messe Basel and Claraplatz."}
+  title: {de: "Klara", en: "Klara"}
+
+kategorien:
+  - id: karte
+    gerichte:
+      - id: d1
+        layout: bild
+        bild: images/dish-cha-gio.jpg
+        alt: "Chả Giò / Nem – knusprige Frühlingsrollen"
+        name: "NEM"
+        text_de: "Frühlingsrollen<br/>mit Crevetten und Poulet<br/>oder Gemüse"
+        text_en: "Spring rolls<br/>with shrimp and chicken<br/>or vegetables"
+        preis: "9 CHF"
+        preis_zusatz: "2 Stück"
+        tags_de: "vt · vg"
+        tags_en: "vt · vg"
+      - id: d2
+        layout: bild
+        bild: images/dish-goi-cuon.jpg
+        alt: "Gỏi Cuốn – frische Sommerrollen"
+        name: "GỎI CUỐN"
+        text_de: "Sommerrollen mit Rind | Poulet | Crevetten | Lachs | Tofu | Avocado"
+        text_en: "Summer rolls with beef | chicken | shrimp | salmon | tofu | avocado"
+        preis: "12 CHF"
+        preis_zusatz: "2 Stück"
+      - id: d3
+        layout: bild
+        bild: images/dish-banh-mi.jpg
+        alt: "Bánh Mì – vietnamesisches Baguette"
+        name: "BÁNH MÌ"
+        text_de: "Vietnamesisches Baguette<br/>mit Rind | Poulet | Ente | Tofu"
+        text_en: "Vietnamese baguette<br/>with beef | chicken | duck | tofu"
+        preis: "16 CHF"
+        tags_de: "vt"
+        tags_en: "vt"
+      - id: d4
+        layout: bild
+        bild: images/dish-bun-bo-nam-bo.jpg
+        alt: "Bún Bò Nam Bộ – Reisnudeln mit Zitronengras-Rind"
+        name: "BÚN BÒ NAM BỘ"
+        text_de: "Reisnudeln mit Zitronengras und Rind | Poulet | Ente | Tofu"
+        text_en: "Rice noodles with lemongrass and beef | chicken | duck | tofu"
+        preis: "24 CHF"
+      - id: d5
+        layout: bild
+        bild: images/dish-bun-cha-gio.jpg
+        alt: "Bún Chả Giò – Reisnudeln mit Frühlingsrollen"
+        name: "BÚN CHẢ GIÒ"
+        text_de: "Reisnudeln und Frühlingsrollen<br/>mit Crevetten und Poulet"
+        text_en: "Rice noodles and spring rolls<br/>with shrimp and chicken"
+      - id: d6
+        layout: bild
+        bild: images/dish-bun-chao-tom.jpg
+        alt: "Bún Chạo Tôm – Crevettenteig am Zuckerrohr"
+        name: "BÚN CHẠO TÔM"
+        text_de: "Reisnudeln mit<br/>Crevettenteig an Zuckerrohr"
+        text_en: "Rice noodles with<br/>shrimp paste on sugar cane"
+      - id: d7
+        layout: bild
+        bild: images/dish-pho.jpg
+        alt: "Phở – vietnamesische Nudelsuppe"
+        name: "PHỞ"
+        text_de: "Vietnamesische Nudelsuppe<br/>mit Rind | Poulet | Tofu"
+        text_en: "Vietnamese noodle soup<br/>with beef | chicken | tofu"
+        preis: "23 CHF"

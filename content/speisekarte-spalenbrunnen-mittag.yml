@@ -1,0 +1,126 @@
+# =============================================================================
+# MITTAGSKARTE SPALENBRUNNEN (Mo-Fr) - Seitentexte und "Die kleine Karte"
+# =============================================================================
+# In dieser Datei stehen:
+#   1. texte:      die Texte dieser Seite (Ueberschriften, Einleitungen usw.)
+#                  auf Deutsch (de) und Englisch (en)
+#   2. kategorien: die Gerichte der kleinen Karte (auf Bestellung, 5-15 Min.)
+#
+# Das Mittagsbuffet (Wochenkarte Montag bis Freitag) steht in der
+# separaten Datei "buffet.yml".
+#
+# So bearbeiten Sie diese Datei:
+#   - Texte stehen immer in Anfuehrungszeichen: de: "Text hier"
+#   - <br/>  erzeugt einen Zeilenumbruch auf der Website - bitte stehen lassen
+#   - &amp;  ist das &-Zeichen - bitte stehen lassen
+#   - Die Felder "id" bitte NIEMALS aendern - die Website und die
+#     Uebersetzungen haengen an diesen stabilen Schluesseln.
+#   - Umlaute und vietnamesische Namen bleiben ganz normal stehen.
+#
+# Felder pro Gericht:
+#   name          vietnamesischer Name (Grossbuchstaben)
+#   text_de/text_en  Beschreibung unter dem Namen
+#   bild / alt    Bilddatei und Bildbeschreibung
+#   preis         Preiszeile; fehlt das Feld, gibt es keine Preiszeile
+#   preis_zusatz  kleiner Zusatz unter dem Preis (z. B. "2 Stueck")
+#   tags_de/tags_en  Hinweiszeile (z. B. vegetarisch/vegan)
+# =============================================================================
+
+prefix: sm
+codes: false
+
+texte:
+  crumb: {de: "Speisekarte Spalenbrunnen mittags", en: "Menu Spalenbrunnen lunch"}
+  eyebrow: {de: "Restaurant · Mo bis Fr · Selbstbedienung", en: "Restaurant · Mon to Fri · self-service"}
+  title: {de: "Spalenbrunnen mittags", en: "Spalenbrunnen lunch"}
+  lead: {de: "Von Montag bis Freitag bieten wir Ihnen über Mittag ein variierendes Buffet und einen kleinen Teil der Abendkarte an. Alle Gerichte vom Buffet wie auch der kleinen Karte sind nachfolgend aufgelistet beziehungsweise abgebildet.", en: "From Monday to Friday we offer a varying lunch buffet and a small selection of the dinner menu. All buffet dishes and small-menu dishes are listed or shown below."}
+  concept: {de: "Da am Mittag alles etwas schneller gehen soll, ist das Konzept ähnlich wie in der Markthalle: kein Service am Tisch, sondern Selbstbedienung an der Theke. Das Buffet wird sogleich geschöpft, die Gerichte der kleinen Karte werden auf Bestellung zubereitet und dauern zwischen 5 und 15 Minuten (je nach Auslastung). Am Abend verwöhnen wir Sie mit unserem à-la-carte-Service am Tisch.", en: "Since lunch needs to be quick, the concept is similar to the Market Hall: no table service, but self-service at the counter. Buffet dishes are served immediately; dishes from the small menu are prepared to order and take 5 to 15 minutes (depending on how busy we are). In the evening we pamper you with our à-la-carte table service."}
+  changing: {de: "Bitte beachten Sie: da unser Mittagsmenü ständig wechselt, kann es sein, dass diese Seite nicht aktuell ist. Wir bitten um Verständnis.", en: "Please note: as our lunch menu changes constantly, this page may not be up to date. We appreciate your understanding."}
+  buffet-title: {de: "Mittagsbuffet · Wochenkarte", en: "Lunch buffet · weekly menu"}
+  buffet-note: {de: "Unser Buffet wechselt täglich – eine Auswahl der Wochenkarte:", en: "Our buffet changes daily – a selection from the weekly menu:"}
+  buffet-sub: {de: "Wählen Sie vom heutigen Buffet", en: "Choose from today's buffet"}
+  served: {de: "Serviert mit gebratenem oder weissem Reis · mit Rind, Poulet, Ente oder Tofu", en: "Served with fried or white rice · with beef, chicken, duck or tofu"}
+  buffet-legend: {de: "Buffet-Gerichte immer mit gebratenem oder weissem Reis. Preis: 17.– oder 18.– CHF je nach Zusammenstellung (Fleisch/Tofu). Alle Curry- und Wok-Gerichte mit Rind, Poulet, Ente oder Tofu.", en: "Buffet dishes always with fried or white rice. Price: 17.– or 18.– CHF depending on composition (meat/tofu). All curry and wok dishes with beef, chicken, duck or tofu."}
+  small-title: {de: "Die kleine Karte · auf Bestellung (5–15 Min.)", en: "The small menu · to order (5–15 min.)"}
+  to-evening: {de: "Zur Abendkarte", en: "To the dinner menu"}
+
+kategorien:
+  - id: kleine-karte
+    gerichte:
+      - id: d1
+        layout: bild
+        bild: images/dish-goi-du-du.jpg
+        alt: "Gỏi Đu Đủ – Papayasalat mit Crevetten"
+        name: "GỎI ĐU ĐỦ"
+        text_de: "Papayasalat"
+        text_en: "Papaya salad with homemade fish sauce<br/>or vegan sauce"
+        preis: "15.50 | 16.50 CHF"
+        preis_zusatz: "vt · vg"
+        tags_de: "vt, vg – <span data-i18n=\"sm.d1x\">Papayasalat mit Crevetten</span>"
+        tags_en: "vt · vg"
+        tags_extra:
+          - {id: d1x, de: "Papayasalat mit Crevetten", en: "Papaya salad with shrimp 16.50"}
+      - id: d2
+        layout: bild
+        bild: images/dish-goi-xoai.jpg
+        alt: "Gỏi Xoài – Mangosalat"
+        name: "GỎI XOÀI"
+        text_de: "Mangosalat"
+        text_en: "Mango salad with homemade fish sauce<br/>or vegan sauce"
+        preis: "16 | 17 CHF"
+        tags_de: "<span data-i18n=\"sm.d2x\">Mangosalat mit Crevetten</span>"
+        tags_en: "vt · vg"
+        tags_extra:
+          - {id: d2x, de: "Mangosalat mit Crevetten", en: "Mango salad with shrimp 15.50"}
+      - id: d3
+        layout: bild
+        bild: images/dish-cha-gio.jpg
+        alt: "Chả Giò / Nem – knusprige Frühlingsrollen"
+        name: "NEM"
+        text_de: "Frühlingsrollen mit Fleisch<br/>oder Gemüse"
+        text_en: "Spring rolls with meat<br/>or vegetables"
+        preis: "9 CHF"
+        preis_zusatz: "2 Stück"
+      - id: d4
+        layout: bild
+        bild: images/dish-goi-cuon.jpg
+        alt: "Gỏi Cuốn – frische Sommerrollen"
+        name: "GỎI CUỐN"
+        text_de: "Sommerrollen<br/>mit Crevetten | Tofu"
+        text_en: "Summer rolls with beef | shrimp | tofu"
+        preis: "12 CHF"
+        preis_zusatz: "2 Stück"
+      - id: d5
+        layout: bild
+        bild: images/dish-bun-bo-nam-bo.jpg
+        alt: "Bún Bò Nam Bộ – Reisnudeln mit Zitronengras-Rind"
+        name: "BÚN BÒ NAM BỘ"
+        text_de: "Reisnudeln mit Zitronengras und Rindfleisch | Poulet | Ente oder Tofu"
+        text_en: "Rice noodles with lemongrass<br/>and beef | chicken | duck"
+        preis: "23 CHF"
+        tags_de: "<span data-i18n=\"sm.d5x\">Alle Gerichte mit Ente plus 1 Franken</span>"
+        tags_en: "vt · vg"
+        tags_extra:
+          - {id: d5x, de: "Alle Gerichte mit Ente plus 1 Franken", en: "Rice noodles with lemongrass and tofu"}
+      - id: d6
+        layout: bild
+        bild: images/dish-bun-cha-gio.jpg
+        alt: "Bún Chả Giò – Reisnudeln mit Frühlingsrollen"
+        name: "BÚN CHẢ GIÒ"
+        text_de: "Reisnudeln und hausgemachte Frühlingsrollen<br/>mit Crevetten und Poulet"
+        text_en: "Rice noodles and spring rolls<br/>with meat or vegetables"
+      - id: d7
+        layout: bild
+        bild: images/dish-pho-xao.jpg
+        alt: "Phở Xào – gebratene Reisnudeln"
+        name: "PHỞ XÀO"
+        text_de: "Gebratene Reisnudeln mit Rind | Crevetten | Ente oder Tofu"
+        text_en: "Fried rice noodles<br/>with beef | chicken | shrimp | duck | tofu"
+      - id: d8
+        layout: bild
+        bild: images/dish-pho.jpg
+        alt: "Phở – vietnamesische Nudelsuppe"
+        name: "PHỞ SÚP"
+        text_de: "Vietnamesische Nudelsuppe mit Rind | Poulet oder Tofu"
+        text_en: "Vietnamese noodle soup<br/>with beef | chicken | crispy duck | tofu"
+        preis: "24 CHF"

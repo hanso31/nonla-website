@@ -1,0 +1,73 @@
+# =============================================================================
+# MITTAGSBUFFET SPALENBRUNNEN - Wochenkarte (Montag bis Freitag)
+# =============================================================================
+# DIESE DATEI IST DIE WICHTIGSTE FUER DEN TAGESBETRIEB:
+# Hier stehen die Buffet-Gerichte der Wochenkarte, die auf der Seite
+# "Mittagsmenu Spalenbrunnen" angezeigt werden.
+#
+# Aufbau: Fuer jeden Wochentag (mo, di, mi, do, fr) gibt es fuenf Gerichte.
+# Pro Gericht steht der deutsche Text (de), die englische Uebersetzung (en)
+# und jeweils eine Unterzeile (sub_de / sub_en), z. B. die Fleisch-/Tofu-Wahl.
+#
+# So bearbeiten Sie diese Datei:
+#   - Texte stehen immer in Anfuehrungszeichen: de: "Text hier"
+#   - Die Einrueckung mit Leerzeichen muss exakt so bleiben wie jetzt.
+#   - <br/>  erzeugt einen Zeilenumbruch - bitte stehen lassen
+#   - &amp;  ist das &-Zeichen - bitte stehen lassen
+#   - Die Felder "id" (mo, di, mi, do, fr) bitte NIEMALS aendern - die
+#     Website und die Uebersetzungen haengen an diesen stabilen Schluesseln.
+#   - Der Preis steht je Tag im Feld "preis" (z. B. "17.– | 18.– CHF").
+#   - Umlaute und vietnamesische Woerter bleiben ganz normal stehen.
+# =============================================================================
+
+tage:
+  - id: mo
+    tag_de: "Montag"
+    tag_en: "Monday"
+    preis: "17.– | 18.– CHF"
+    gerichte:
+      - {de: "Rotes Curry", en: "Red curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Erdnusscurry", en: "Peanut curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Grünes Curry (scharf)", en: "Green curry (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Pfeffer-Sauce", en: "Stir-fried vegetables in pepper sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Zitronengras-Sauce", en: "Stir-fried vegetables in lemongrass sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+  - id: di
+    tag_de: "Dienstag"
+    tag_en: "Tuesday"
+    preis: "17.– | 18.– CHF"
+    gerichte:
+      - {de: "Rotes Curry", en: "Red curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Zitronengras-Curry (scharf)", en: "Lemongrass curry (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Thai-Basilikum-Sauce (scharf)", en: "Stir-fried vegetables in Thai basil sauce (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Trüffelsauce", en: "Stir-fried vegetables in truffle sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Szechuan-Gemüse auf Nón Lá-Art", en: "Szechuan vegetables Nón Lá style", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+  - id: mi
+    tag_de: "Mittwoch"
+    tag_en: "Wednesday"
+    preis: "17.– | 18.– CHF"
+    gerichte:
+      - {de: "Rotes Curry", en: "Red curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Mangocurry", en: "Mango curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Grünes Curry (scharf)", en: "Green curry (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Hoisin-Sauce", en: "Stir-fried vegetables in hoisin sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Chili- und Knoblauchsauce", en: "Stir-fried vegetables in chilli and garlic sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+  - id: do
+    tag_de: "Donnerstag"
+    tag_en: "Thursday"
+    preis: "17.– | 18.– CHF"
+    gerichte:
+      - {de: "Rotes Curry", en: "Red curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Erdnusscurry", en: "Peanut curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gelbes Curry", en: "Yellow curry (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Thai-Basilikum-Sauce (scharf)", en: "Stir-fried vegetables in Thai basil sauce (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an Fünf-Gewürze-Sauce", en: "Stir-fried vegetables in five-spice sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+  - id: fr
+    tag_de: "Freitag"
+    tag_en: "Friday"
+    preis: "17.– | 18.– CHF"
+    gerichte:
+      - {de: "Rotes Curry", en: "Red curry", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gelbes Curry mit Mango", en: "Yellow curry with mango", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Zitronengras-Curry (scharf)", en: "Lemongrass curry (spicy)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Gebratenes Gemüse an XO-Nón Lá-Sauce (Meeresfrüchtesauce)", en: "Stir-fried vegetables in XO-Nón Lá sauce (seafood sauce)", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}
+      - {de: "Tilapia-Fisch an Ingwersauce", en: "Tilapia fish in ginger sauce", sub_de: "mit Rind, Poulet, Ente oder Tofu", sub_en: "with beef, chicken, duck or tofu"}

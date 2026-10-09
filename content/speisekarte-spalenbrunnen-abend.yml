@@ -1,0 +1,367 @@
+# ============================================================
+# Abendkarte Spalenbrunnen (à la carte, abends & samstags)
+# ============================================================
+# In dieser Datei stehen alle Texte der Seite
+# "speisekarte-spalenbrunnen-abend.html": Seitentexte (unten bei
+# "texte"), die 7 Kategorien und alle Gerichte mit Preisen,
+# Varianten und Kennzeichnungen.
+#
+# So bearbeitest du diese Datei:
+# - Texte immer zwischen den Anführungszeichen ändern.
+# - "de" = deutscher Text, "en" = englischer Text.
+# - <br/> steht für einen Zeilenumbruch und muss erhalten bleiben.
+# - &amp; steht für ein &-Zeichen und muss erhalten bleiben.
+# - Die "id"-Felder sind stabile Schlüssel für die Übersetzung –
+#   bitte NIE umbenennen, sonst gehen die Verknüpfungen verloren.
+# - "layout: bild" = Gericht mit Foto, "layout: einfach" = ohne Foto.
+# - "preis" fehlt absichtlich bei manchen Gerichten (dann erscheint
+#   keine Preiszeile) – bitte nicht ergänzen.
+# - Kennzeichnungen: vt = vegetarisch, vg = vegan, vgm = vegan möglich.
+
+prefix: sa
+codes: false
+
+texte:
+  crumb:    {de: "Speisekarte Spalenbrunnen abends", en: "Menu Spalenbrunnen dinner"}
+  eyebrow:  {de: "À la carte · Abend &amp; Samstag", en: "À la carte · evening &amp; Saturday"}
+  title:    {de: "Spalenbrunnen abends", en: "Spalenbrunnen dinner"}
+  lead:     {de: "Am Abend und samstags ganztags serviert Ihnen unser Team in gemütlichem Ambiente köstliche Gerichte aus unserer Küche an den Tisch. Reservationen nehmen wir gerne online entgegen – wir freuen uns auf Ihren Besuch.", en: "In the evening and all day on Saturdays, our team serves delicious dishes from our kitchen at your table in a cosy atmosphere. We gladly accept reservations online – we look forward to your visit."}
+  note1:    {de: "Wann immer möglich kochen wir gerne glutenfrei. Bitte informieren Sie uns über bekannte Allergien. Unsere Servicemitarbeiter:innen beraten Sie gerne.", en: "Whenever possible, we are happy to cook gluten-free. Please inform us of any known allergies. Our service staff will be happy to advise you."}
+  note2:    {de: "Alle Preise inkl. 8,1% MwSt.", en: "All prices incl. 8.1% VAT."}
+  note3:    {de: "Fleisch- und Fischherkunft: Rindfleisch, Poulet: Schweiz · Ente: Thailand · Crevetten: Vietnam.", en: "Origin of meat and fish: beef, chicken: Switzerland · duck: Thailand · shrimp: Vietnam."}
+  note4:    {de: "WLAN: NonLa Gast · Passwort: nonla2020", en: "Wi-Fi: NonLa Gast · Password: nonla2020"}
+  original: {de: "Original-Menükarte als Bild (Vorder- &amp; Rückseite)", en: "Original menu card as image (front &amp; back)"}
+  reserve:  {de: "Tisch reservieren", en: "Reserve a table"}
+  to-lunch: {de: "Zum Mittagsmenü (Mo–Fr)", en: "To the lunch menu (Mon–Fri)"}
+
+kategorien:
+  # ---------- Khai Vi · Vorspeisen ----------
+  - id: cat1
+    i18n: cat1
+    name_de: "Vorspeisen"
+    name_en: "Starters"
+    titel_vi: "Khai Vi ·"
+    gerichte:
+      - id: s1
+        layout: einfach
+        name: "ĐẬU NÀNH XANH LUỘC"
+        text_de: "Edamame"
+        text_en: "Edamame"
+        preis: "8.50"
+        tags_de: "vg"
+        tags_en: "vg"
+      - id: s2
+        layout: bild
+        bild: images/dish-cha-gio.jpg
+        alt: "Chả Giò / Nem – knusprige Frühlingsrollen"
+        name: "CHẢ GIÒ"
+        text_de: "Frühlingsrollen"
+        text_en: "Spring rolls"
+        preis: "12.50"
+        varianten:
+          - {de: "mit Crevetten und Poulet", en: "with shrimp and chicken", preis: "12.50"}
+          - {de: "mit Gemüse · vg", en: "with vegetables · vg", preis: "11.50"}
+      - id: s3
+        layout: bild
+        bild: images/dish-goi-cuon.jpg
+        alt: "Gỏi Cuốn – frische Sommerrollen"
+        name: "GỎI CUỐN"
+        text_de: "Sommerrollen"
+        text_en: "Summer rolls"
+        preis: "7.00 | 12.00"
+        preis_zusatz: "1 | 2 Stück"
+        varianten:
+          - {de: "mit Lachs und Avocado", en: "with salmon and avocado", preis: "7.00 | 12.00"}
+          - {de: "mit Crevetten", en: "with shrimp", preis: "7.00 | 12.00"}
+          - {de: "mit Rindfleisch und Zitronengras", en: "with beef and lemongrass", preis: "7.00 | 12.00"}
+          - {de: "mit Ente und Mango", en: "with duck and mango", preis: "7.00 | 12.00"}
+          - {de: "mit Tofu und Mango · vt, vgm", en: "with tofu and mango · vt, vgm", preis: "7.00 | 12.00"}
+          - {de: "mit Mango und Avocado · vt, vgm", en: "with mango and avocado · vt, vgm", preis: "7.00 | 12.00"}
+      - id: s4
+        layout: einfach
+        name: "GÀ SATAY"
+        text_de: "Pouletspiesse an Erdnusssauce"
+        text_en: "Chicken skewers with peanut sauce"
+        preis: "12.00"
+      - id: s5
+        layout: einfach
+        name: "LÁ LỐT BÒ | CHAY"
+        text_de: "Spiesse im Pfefferblatt"
+        text_en: "Skewers in pepper leaves"
+        preis: "12.50"
+        varianten:
+          - {de: "Rindfleischspiesse im Pfefferblatt", en: "Beef skewers in pepper leaves", preis: "12.50"}
+          - {de: "Tofuspiesse im Pfefferblatt · vg", en: "Tofu skewers in pepper leaves · vg", preis: "12.50"}
+      - id: s6
+        layout: einfach
+        name: "HÁ CẢO MẶN | CHAY"
+        text_de: "Gedämpfte, hausgemachte Dumplings"
+        text_en: "Steamed homemade dumplings"
+        preis: "11.50"
+        varianten:
+          - {de: "mit Crevetten", en: "with shrimp", preis: "11.50"}
+          - {de: "mit Gemüse · vg", en: "with vegetables · vg", preis: "11.50"}
+      - id: s7
+        layout: einfach
+        name: "CHẢ CÁ CHIÊN"
+        text_de: "Fischcake nach vietnamesischer Art"
+        text_en: "Fish cake Vietnamese style"
+        preis: "12.50"
+      - id: s8
+        layout: einfach
+        name: "GÀ TẨM BỘT CHIÊN XÙ"
+        text_de: "Hausgemachte, knusprige Pouletflügeli"
+        text_en: "Homemade crispy chicken wings"
+        preis: "12.50"
+
+  # ---------- Súp Nhỏ · Kleine Suppe ----------
+  - id: cat2
+    i18n: cat2
+    name_de: "Kleine Suppe"
+    name_en: "Small soup"
+    titel_vi: "Súp Nhỏ ·"
+    gerichte:
+      - id: p1
+        layout: einfach
+        name: "SÚP CANH CHUA"
+        text_de: "Kleine traditionelle vietnamesische Suppe mit Tomaten, Pilzen, Zitronengras, frischen Kräutern, Dill · leicht scharf"
+        text_en: "Small traditional Vietnamese soup with tomatoes, mushrooms, lemongrass, fresh herbs, dill · slightly spicy"
+        preis: "13.50"
+        tags_de: "<span data-i18n=\"sa.p1x\">und Lachs 15.00 · und Crevetten 14.00 · und Tofu 13.50</span>"
+        tags_en: "<span data-i18n=\"sa.p1x\">with salmon 15.00 · with shrimp 14.00 · with tofu 13.50</span>"
+        tags_extra:
+          - {id: p1x, de: "und Lachs 15.00 · und Crevetten 14.00 · und Tofu 13.50", en: "with salmon 15.00 · with shrimp 14.00 · with tofu 13.50"}
+
+  # ---------- Gỏi · Salate ----------
+  - id: cat3
+    i18n: cat3
+    name_de: "Salate"
+    name_en: "Salads"
+    titel_vi: "Gỏi ·"
+    gerichte:
+      - id: g1
+        layout: bild
+        bild: images/dish-goi-du-du.jpg
+        alt: "Gỏi Đu Đủ – Papayasalat mit Crevetten"
+        name: "GỎI ĐU ĐỦ"
+        text_de: "Papayasalat"
+        text_en: "Papaya salad"
+        preis: "16.50"
+        tags_de: "vg · <span data-i18n=\"sa.g1x\">Papayasalat mit Crevetten 18.00</span>"
+        tags_en: "vg · <span data-i18n=\"sa.g1x\">Papaya salad with shrimp 18.00</span>"
+        tags_extra:
+          - {id: g1x, de: "Papayasalat mit Crevetten 18.00", en: "Papaya salad with shrimp 18.00"}
+      - id: g2
+        layout: bild
+        bild: images/dish-goi-xoai.jpg
+        alt: "Gỏi Xoài – Mangosalat"
+        name: "GỎI XOÀI"
+        text_de: "Mangosalat"
+        text_en: "Mango salad"
+        preis: "16.00"
+        tags_de: "<span data-i18n=\"sa.g2x\">Mangosalat vg · mit Crevetten 17.50</span>"
+        tags_en: "<span data-i18n=\"sa.g2x\">Mango salad vg · with shrimp 17.50</span>"
+        tags_extra:
+          - {id: g2x, de: "Mangosalat vg · mit Crevetten 17.50", en: "Mango salad vg · with shrimp 17.50"}
+      - id: g3
+        layout: einfach
+        name: "GỎI BÒ TÁI CHANH"
+        text_de: "Rindfleischsalat mit Peperoni und verschiedenen Kräutern an leicht scharfer Limettensauce"
+        text_en: "Beef salad with peppers and various herbs in a mildly spicy lime sauce"
+        preis: "19.00"
+
+  # ---------- Cơm · Reisgerichte ----------
+  - id: cat4
+    i18n: cat4
+    name_de: "Reisgerichte"
+    name_en: "Rice dishes"
+    titel_vi: "Cơm ·"
+    gerichte:
+      - id: r1
+        layout: einfach
+        name: "BÒ KHO"
+        text_de: "Vietnamesisches Rindsragout mit Gemüse und Zitronengras, verfeinert mit Rotwein, serviert mit Reis"
+        text_en: "Vietnamese beef ragout with vegetables and lemongrass, refined with red wine, served with rice"
+        preis: "27.00"
+      - id: r2
+        layout: einfach
+        name: "CARI ĐỎ"
+        text_de: "Rotes Curry nach vietnamesischer Art mit Gemüse"
+        text_en: "Red curry Vietnamese style with vegetables"
+        preis: "26.00"
+        varianten:
+          - {de: "und knusprigem Poulet", en: "and crispy chicken", preis: "27.00"}
+          - {de: "und Rindfleisch", en: "and beef", preis: "27.50"}
+          - {de: "und knuspriger Ente", en: "and crispy duck", preis: "28.00"}
+          - {de: "und Tofu · vt, vg", en: "and tofu · vt, vg", preis: "26.00"}
+          - {de: "und Planted Chicken · vt, vg", en: "and Planted Chicken · vt, vg", preis: "26.00"}
+      - id: r3
+        layout: bild
+        bild: images/dish-cari-dau-phong.jpg
+        alt: "Càri Đậu Phộng – Erdnusscurry"
+        name: "CARI ĐÂU PHỘNG"
+        text_de: "Erdnusscurry nach vietnamesischer Art mit Gemüse"
+        text_en: "Peanut curry Vietnamese style with vegetables"
+        preis: "26.00"
+        varianten:
+          - {de: "und knusprigem Poulet", en: "and crispy chicken", preis: "27.00"}
+          - {de: "und knuspriger Ente", en: "and crispy duck", preis: "28.00"}
+          - {de: "und Tofu · vt, vg", en: "and tofu · vt, vg", preis: "26.00"}
+          - {de: "und Planted Chicken · vt, vg", en: "and Planted Chicken · vt, vg", preis: "26.00"}
+      - id: r4
+        layout: bild
+        bild: images/dish-cari-xoai.jpg
+        alt: "Càri Xoài – Mangocurry"
+        name: "CARI XOÀI"
+        text_de: "Mangocurry nach vietnamesischer Art mit Gemüse"
+        text_en: "Mango curry Vietnamese style with vegetables"
+        preis: "26.00"
+        varianten:
+          - {de: "und knusprigem Poulet", en: "and crispy chicken", preis: "27.00"}
+          - {de: "und knuspriger Ente", en: "and crispy duck", preis: "28.00"}
+          - {de: "und Tofu · vt, vg", en: "and tofu · vt, vg", preis: "26.00"}
+          - {de: "und Planted Chicken · vt, vg", en: "and Planted Chicken · vt, vg", preis: "26.00"}
+
+  # ---------- Bún – Phở · Nudeln ----------
+  - id: cat5
+    i18n: cat5
+    name_de: "Nudeln"
+    name_en: "Noodles"
+    titel_vi: "Bún – Phở ·"
+    gerichte:
+      - id: n1
+        layout: bild
+        bild: images/dish-bun-bo-nam-bo.jpg
+        alt: "Bún Bò Nam Bộ – Reisnudeln mit Zitronengras-Rind"
+        name: "BÚN BÒ NAM BỘ"
+        text_de: "Lauwarm · Reisnudeln mit Zitronengras, frischen Kräutern, Knoblauch, Röstzwiebeln, Erdnüssen"
+        text_en: "Lukewarm · rice noodles with lemongrass, fresh herbs, garlic, fried shallots, peanuts"
+        preis: "26.00"
+        varianten:
+          - {de: "und Rindfleisch", en: "and beef", preis: "27.00"}
+          - {de: "und Poulet", en: "and chicken", preis: "26.00"}
+          - {de: "und knuspriger Ente", en: "and crispy duck", preis: "29.00"}
+          - {de: "und Tofu · vt, vg", en: "and tofu · vt, vg", preis: "26.00"}
+          - {de: "und Planted Chicken · vt, vg", en: "and Planted Chicken · vt, vg", preis: "26.00"}
+      - id: n2
+        layout: bild
+        bild: images/dish-bun-cha-gio.jpg
+        alt: "Bún Chả Giò – Reisnudeln mit Frühlingsrollen"
+        name: "BÚN CHẢ GIÒ"
+        text_de: "Lauwarm · Reisnudeln mit frischen Kräutern, Röstzwiebeln, Erdnüssen und Frühlingsrollen"
+        text_en: "Lukewarm · rice noodles with fresh herbs, fried shallots, peanuts and spring rolls"
+        varianten:
+          - {de: "mit Crevetten und Poulet", en: "with shrimp and chicken", preis: "26.50"}
+          - {de: "mit Gemüse · vt, vg", en: "with vegetables · vt, vg", preis: "26.00"}
+      - id: n3
+        layout: bild
+        bild: images/dish-bun-la-lot.jpg
+        alt: "Bún Bò Lá Lốt – Rindfleisch im Pfefferblatt"
+        name: "BÚN LÁ LỐT BÒ | CHAY"
+        text_de: "Lauwarm · Reisnudeln mit frischen Kräutern, Röstzwiebeln, Erdnüssen und Spieszen im Pfefferblatt"
+        text_en: "Lukewarm · rice noodles with fresh herbs, fried shallots, peanuts and skewers in pepper leaves"
+        varianten:
+          - {de: "Rindfleischspiesse", en: "beef skewers", preis: "28.00"}
+          - {de: "Tofuspiesse · vt, vg", en: "tofu skewers · vt, vg", preis: "27.00"}
+      - id: n4
+        layout: bild
+        bild: images/dish-pho-xao.jpg
+        alt: "Phở Xào – gebratene Reisnudeln"
+        name: "PHỞ XÀO"
+        text_de: "Gebratene Reisbandnudeln mit Gemüse, Knoblauch, hausgemachter Sojasauce"
+        text_en: "Fried flat rice noodles with vegetables, garlic, homemade soy sauce"
+        preis: "27.00"
+        varianten:
+          - {de: "und Rindfleisch", en: "and beef", preis: "27.50"}
+          - {de: "und knusprigem Poulet", en: "and crispy chicken", preis: "27.00"}
+          - {de: "und Crevetten", en: "and shrimp", preis: "27.00"}
+          - {de: "und knuspriger Ente", en: "and crispy duck", preis: "28.00"}
+          - {de: "und Tofu und Planted Chicken · vt, vgm", en: "and tofu and Planted Chicken · vt, vgm", preis: "27.00"}
+
+  # ---------- Súp · Suppen ----------
+  - id: cat6
+    i18n: cat6
+    name_de: "Suppen"
+    name_en: "Soups"
+    titel_vi: "Súp ·"
+    gerichte:
+      - id: u1
+        layout: bild
+        bild: images/dish-pho.jpg
+        alt: "Phở – vietnamesische Nudelsuppe"
+        name: "PHỞ"
+        text_de: "Traditionelle Reisnudelsuppe"
+        text_en: "Traditional rice noodle soup"
+        preis: "26.00"
+        varianten:
+          - {de: "mit Rindfleisch", en: "with beef", preis: "27.00"}
+          - {de: "mit Poulet", en: "with chicken", preis: "26.00"}
+          - {de: "mit knuspriger Ente", en: "with crispy duck", preis: "29.00"}
+          - {de: "mit Tofu (Fleischbouillon)", en: "with tofu (meat broth)", preis: "26.00"}
+          - {de: "mit Tofu und Planted Chicken (Gemüsebouillon) · vg", en: "with tofu and Planted Chicken (vegetable broth) · vg", preis: "26.00"}
+      - id: u2
+        layout: einfach
+        name: "BÁNH CANH TÔM NƯỚC CỐT DỪA"
+        text_de: "Traditionelle vietnamesische Udon-Nudelsuppe mit Kokosnussmilch"
+        text_en: "Traditional Vietnamese udon noodle soup with coconut milk"
+        preis: "26.00"
+        tags_de: "<span data-i18n=\"sa.u2x\">und Crevetten 28.00 · und Tofu 26.00</span>"
+        tags_en: "<span data-i18n=\"sa.u2x\">with shrimp 28.00 · with tofu 26.00</span>"
+        tags_extra:
+          - {id: u2x, de: "und Crevetten 28.00 · und Tofu 26.00", en: "with shrimp 28.00 · with tofu 26.00"}
+
+  # ---------- Tráng Miệng · Desserts ----------
+  - id: cat7
+    i18n: cat7
+    name_de: "Desserts"
+    name_en: "Desserts"
+    titel_vi: "Tráng Miệng ·"
+    gerichte:
+      - id: e1
+        layout: einfach
+        name: "KEM XOÀI"
+        text_de: "Mangocrème"
+        text_en: "Mango cream"
+        preis: "8.50"
+        tags_de: "vt"
+        tags_en: "vt"
+      - id: e2
+        layout: einfach
+        name: "PANNA COTTA CHANH DÂY"
+        text_de: "Panna cotta mit Passionsfrucht"
+        text_en: "Panna cotta with passion fruit"
+        preis: "9.50"
+        tags_de: "vt"
+        tags_en: "vt"
+      - id: e3
+        layout: einfach
+        name: "CHUỐI NẾP"
+        text_de: "Klebreis mit Banane an Kokosnussmilch"
+        text_en: "Sticky rice with banana in coconut milk"
+        preis: "9.50"
+        tags_de: "vg"
+        tags_en: "vg"
+      - id: e4
+        layout: einfach
+        name: "KEM CHUỐI"
+        text_de: "Frittierte Banane mit Honig und Eis nach Wahl"
+        text_en: "Deep-fried banana with honey and ice cream of your choice"
+        preis: "11.50"
+        tags_de: "vt"
+        tags_en: "vt"
+      - id: e5
+        layout: einfach
+        name: "CÀ PHÊ KEM VANI"
+        text_de: "Vietnamesischer Kaffee und eine Kugel Vanilleeis"
+        text_en: "Vietnamese coffee with a scoop of vanilla ice cream"
+        preis: "10.00"
+        tags_de: "vt"
+        tags_en: "vt"
+      - id: e6
+        layout: einfach
+        name: "KEM"
+        text_de: "Eis nach Wahl"
+        text_en: "Ice cream of your choice"
+        preis: "4.00"
+        tags_de: "Kokosnuss vt · Schokolade vt · Vanille vt · Mango vg · Zitrone vg"
+        tags_en: "coconut vt · chocolate vt · vanilla vt · mango vg · lemon vg"
