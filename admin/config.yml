@@ -11,8 +11,10 @@ backend:
   # repo: mein-benutzer/nonla-website
   repo: BITTE-EINTRAGEN/nonla-website
   branch: main
-  # Adresse des OAuth-Proxy (Cloudflare Worker) aus Schritt 3 der README
-  base_url: https://BITTE-EINTRAGEN.workers.dev
+  # Adresse der fertigen Seite (Cloudflare Pages) – der Login-Endpunkt
+  # /api/auth wird von functions/ im Projekt bereitgestellt.
+  base_url: https://BITTE-EINTRAGEN.pages.dev
+  auth_endpoint: api/auth
 
 locale: de
 

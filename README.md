@@ -46,41 +46,33 @@ einen Neuaufbau aus; nach ca. 1 Minute ist die aktualisierte Seite online.
 4. **Save and Deploy** klicken. Nach ca. 1 Minute ist die Seite unter einer
    Adresse wie `https://nonla-website.pages.dev` erreichbar.
 
-### Schritt 3: Login für das Redaktionssystem (einmalig, ca. 15 Minuten)
+### Schritt 3: Login für das Redaktionssystem (einmalig, ca. 10 Minuten)
 
-Die Betreiber melden sich im CMS mit ihrem **GitHub-Konto** an. Dazu
-braucht es eine GitHub-„OAuth-App" und einen kleinen kostenlosen
-Helfer-Dienst (Cloudflare Worker), der den Login vermittelt:
+Die Betreiber melden sich im CMS mit ihrem **GitHub-Konto** an. Der
+nötige Login-Dienst ist bereits im Projekt enthalten (Ordner `functions/`)
+und läuft automatisch mit der Seite mit – es muss nur eine GitHub-App
+davon registriert werden:
 
 1. **GitHub-OAuth-App anlegen:** GitHub → oben rechts Profilbild →
    **Settings → Developer settings → OAuth Apps → New OAuth App**
    - *Application name:* z. B. `nonla-cms`
    - *Homepage URL:* `https://IHRE-SEITE.pages.dev`
-   - *Authorization callback URL:* `https://nonla-oauth.IHRE-CLOUDFLARE-NAME.workers.dev/callback`
+   - *Authorization callback URL:* ebenfalls `https://IHRE-SEITE.pages.dev`
+     (Ja, dieselbe Adresse – das ist hier korrekt.)
    - **Register application** → danach **Generate a new client secret**
-     (Client-ID und Secret kurz notieren – das Secret wird nur einmal
-     angezeigt).
-2. **Worker bereitstellen:** Den fertigen Helfer-Dienst von
-   <https://github.com/i40west/decap-cms-github-oauth-cloudflare> nehmen:
-   Repository herunterladen, im Ordner `npm install`, dann
-
-   ```
-   npx wrangler secret put CLIENT_ID
-   npx wrangler secret put CLIENT_SECRET
-   npx wrangler deploy
-   ```
-
-   (Wrangler fragt beim ersten Mal nach einem Cloudflare-Login; die
-   Worker-URL sieht aus wie `https://nonla-oauth.IHRE-NAME.workers.dev` –
-   sie muss zur Callback-URL in Schritt 1 passen. Ohne
-   Kommandozeilen-Erfahrung kann jede Person mit IT-Kenntnissen das in
-   10 Minuten übernehmen.)
+     (Client-ID und Secret notieren – das Secret wird nur einmal angezeigt).
+2. **Schlüssel in Cloudflare eintragen:** Cloudflare-Dashboard → das
+   Pages-Projekt → **Settings → Environment variables** (Produktion) →
+   zwei Variablen anlegen:
+   - `GITHUB_CLIENT_ID` = Client-ID aus Schritt 1
+   - `GITHUB_CLIENT_SECRET` = Secret aus Schritt 1
+   - Danach einmal **Retry deployment** bzw. neu deployen lassen.
 3. **CMS konfigurieren:** In der Datei `admin/config.yml` (im GitHub-Repo
    anklickbar, Stift-Symbol oben rechts) die zwei `BITTE-EINTRAGEN`-Stellen
    ersetzen:
    - `repo: IHR-GITHUB-NAME/nonla-website`
-   - `base_url: https://nonla-oauth.IHRE-NAME.workers.dev`
-   - Änderung mit „Commit changes" speichern.
+   - `base_url: https://IHRE-SEITE.pages.dev`
+   - Änderung mit „Commit changes" speichern (löst automatisch Neuaufbau aus).
 4. **Betreiber einladen:** GitHub → Repository → **Settings → Collaborators
    → Add people** → die GitHub-Konten der Betreiber einladen (Rolle
    „Write"). Die Betreiber brauchen dafür jeweils ein kostenloses
@@ -141,6 +133,7 @@ templates/   ← HTML-/JS-Vorlagen mit @@-Marken (Design-Grundlage)
 images/      ← Bilder (auch Upload-Ziel des CMS)
 styles-v2.css← Design (unverändert aus dem Original)
 admin/       ← Decap CMS (config.yml = Formular-Definition)
+functions/   ← Login-Endpunkte für das CMS (läuft bei Cloudflare Pages mit)
 original/    ← Originaldateien als Referenz für den Abgleich
 build.py     ← baut dist/ aus content/ + templates/
 dist/        ← Build-Ergebnis (wird veröffentlicht, nicht einchecken)
@@ -161,7 +154,7 @@ Zum lokalen Anschauen z. B. `python -m http.server -d dist 8000` und
 
 Das Projekt läuft grundsätzlich auch auf Netlify oder Vercel (Build-
 Kommando wie oben, Output `dist`; bei Netlify wird `netlify.toml`
-automatisch gelesen). Das Redaktionssystem braucht dort denselben
-GitHub-OAuth-Weg wie bei Cloudflare. Die Datei `netlify.toml` ist nur
-für Netlify gedacht – auf Cloudflare Pages wird sie ignoriert.
+automatisch gelesen). Das Redaktionssystem braucht dort statt der
+Pages-`functions/` einen separaten OAuth-Dienst. Die Datei `netlify.toml`
+ist nur für Netlify gedacht – auf Cloudflare Pages wird sie ignoriert.
 **Empfohlen: Cloudflare Pages** (kostenlos, kommerziell erlaubt).
