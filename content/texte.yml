@@ -1,408 +1,437 @@
-# ==========================================================================
-# TEXTE DER WEBSITE – alle allgemeinen Texte in Deutsch (de) und Englisch (en)
-# --------------------------------------------------------------------------
-# Hier liegen die Texte, die auf mehreren Seiten vorkommen (Navigation,
-# Fusszeile, Startseite, Bestellen, Reservieren, Catering, Wochentage).
-# Die Texte der Speisekarten und des Buffets liegen in den eigenen Dateien
-# (speisekarte-*.yml bzw. buffet.yml).
-#
-# So bearbeiten Sie diese Datei:
-#   - schluessel:  NIEMALS aendern – er verbindet den Text mit der Website.
-#   - de:          deutscher Text (wird auf der Website angezeigt)
-#   - en:          englische Uebersetzung (Sprachschalter oben rechts)
-#   - <br/> erzeugt einen Zeilenumbruch – bitte stehen lassen.
-#   - &amp; steht fuer das &-Zeichen – bitte stehen lassen.
-#   - <strong>...</strong> macht Text fett – bitte stehen lassen.
-#
-# Eintraege mit "de: null" sind zur Zeit auf keiner Seite sichtbar
-# (Reste aus einer frueheren Version) und koennen ignoriert werden.
-# ==========================================================================
-
 eintraege:
-- schluessel: nav.brand-sub
-  de: null
-  en: Vietnamese Kitchen
-- schluessel: nav.catering
-  de: Catering
-  en: Catering
-- schluessel: nav.about
-  de: Über uns
-  en: About
-- schluessel: nav.offer
-  de: null
-  en: Menu
-- schluessel: nav.dishes
-  de: null
-  en: Dishes
-- schluessel: nav.locations
-  de: Standorte
-  en: Locations
-- schluessel: nav.contact
-  de: Kontakt
-  en: Contact
-- schluessel: nav.reserve
-  de: Tisch reservieren
-  en: Reserve a table
-- schluessel: hero.eyebrow
-  de: Vietnamesische Küche · Basel
-  en: Vietnamese cuisine · Basel
-- schluessel: hero.t1
-  de: Ein Stück
-  en: A piece of
-- schluessel: hero.t2
-  de: Vietnam
-  en: Vietnam
-- schluessel: hero.t3
-  de: mitten in Basel.
-  en: in the heart of Basel.
-- schluessel: hero.lead
-  de: Frisch, aromatisch und hausgemacht – bei Nón Lá geniessen Sie authentische vietnamesische Küche. Am Spalenbrunnen, in der Alten Markthalle und im Klara.
-  en: Fresh, aromatic and homemade — at Nón Lá you enjoy authentic Vietnamese cuisine. At Spalenbrunnen, in the Old Market Hall and at Klara.
-- schluessel: hero.cta1
-  de: Tisch reservieren
-  en: Reserve a table
-- schluessel: hero.cta2
-  de: Speisekarten entdecken
-  en: Explore dishes
-- schluessel: hero.fact1
-  de: <strong>Mittagsbuffet</strong> Mo bis Fr
-  en: <strong>Lunch buffet</strong> Mon to Fri
-- schluessel: hero.fact2
-  de: <strong>Take Away</strong> −10% Rabatt
-  en: <strong>Take away</strong> −10% discount
-- schluessel: hero.fact3
-  de: <strong>Lieferung</strong> über velogourmet, eat.ch & Uber Eats
-  en: <strong>Delivery</strong> via velogourmet, eat.ch & Uber Eats
-- schluessel: hero.card-title
-  de: Drei Orte, ein Geschmack
-  en: Three places, one taste
-- schluessel: hero.card-text
-  de: Kitchen Spalenbrunnen · Streetfood Markthalle · Corner Klara
-  en: Kitchen Spalenbrunnen · Streetfood Markthalle · Corner Klara
-- schluessel: mq.1
-  de: Authentisch vietnamesisch
-  en: Authentic Vietnamese
-- schluessel: mq.2
-  de: Mittagsbuffet Mo bis Fr
-  en: Lunch buffet Mon to Fri
-- schluessel: mq.3
-  de: Take Away −10%
-  en: Take away −10%
-- schluessel: mq.4
-  de: Catering für Ihren Anlass
-  en: Catering for your event
-- schluessel: mq.5
-  de: Frisch & hausgemacht
-  en: Fresh & homemade
-- schluessel: about.eyebrow
-  de: Über uns
-  en: About us
-- schluessel: about.title
-  de: Chào & herzlich willkommen.
-  en: Chào & welcome.
-- schluessel: about.p1
-  de: Nón Lá ist in Basel zu Hause – im eindrucksvollen, einzigartigen Ambiente der Alten Markthalle, am Spalenbrunnen und im Klara zwischen Messe und Claraplatz. Bei uns finden Sie an allen drei Standorten eine grosse Auswahl an frisch zubereiteten, authentischen vietnamesischen Speisen.
-  en: Nón Lá is at home in Basel – in the impressive, unique ambience of the Old Market Hall, at Spalenbrunnen and at Klara, between Messe Basel and Claraplatz. At all three locations you will find a wide selection of freshly prepared, authentic Vietnamese dishes.
-- schluessel: about.p2
-  de: Über Mittag (Mo bis Fr) erwartet Sie ein abwechslungsreiches Buffet. Unsere beliebten Fried Noodles stellen Sie nach Ihrem persönlichen Geschmack zusammen.
-  en: At lunchtime (Mon to Fri) a varied buffet awaits you. Our popular Fried Noodles can be assembled to your personal taste.
-- schluessel: about.hat
-  de: Der «Nón Lá» – der traditionelle Kegelhut aus Bambus und Palmblättern, ein Wahrzeichen Vietnams.
-  en: The “Nón Lá” – the traditional conical hat made of bamboo and palm leaves, an icon of Vietnam.
-- schluessel: about.quote
-  de: «Er wird von Menschen getragen, die im Freien arbeiten – zum Schutz vor Sonne und Regen.»
-  en: “It is worn by people working outdoors – protecting them from sun and rain.”
-- schluessel: about.quote-by
-  de: Über den Namen Nón Lá
-  en: About the name Nón Lá
-- schluessel: offer.eyebrow
-  de: Aktuelles & Angebot
-  en: What we offer
-- schluessel: offer.title
-  de: Mittag & Abend
-  en: Lunch & Dinner
-- schluessel: offer.sub
-  de: 'Ob schnelles Mittagessen, gemütlicher Abend oder zuhause: Nón Lá ist flexibel. Die Küche schliesst jeweils eine halbe Stunde vor Schluss.'
-  en: A quick lunch, a cosy dinner or a night in — Nón Lá is flexible. The kitchen closes half an hour before closing time.
-- schluessel: offer.lunch-title
-  de: Mittagsangebot
-  en: Lunch menu
-- schluessel: offer.lunch-text
-  de: Mo bis Fr abwechslungsreiches Buffet und kleine Karte – frisch, schnell und sättigend. Selbstbedienung an der Theke.
-  en: 'Monday to Friday: a varied buffet of fresh Vietnamese dishes — quick, tasty and filling.'
-- schluessel: offer.lunch-menu
-  de: Mittagskarte Spalenbrunnen
-  en: See lunch menu
-- schluessel: offer.delivery
-  de: null
-  en: Delivery via
-- schluessel: offer.dinner-title
-  de: Abendangebot
-  en: Dinner menu
-- schluessel: offer.dinner-text
-  de: Am Abend und Samstag serviert unser Team à la carte an den Tisch – und für Zuhause gibt es <strong>10% Rabatt</strong> auf Take Away.
-  en: In the evening we serve our classics à la carte — and for home there is <strong>10% off</strong> take away.
-- schluessel: offer.dinner-menu
-  de: Abendkarte Spalenbrunnen
-  en: See dinner menu
-- schluessel: offer.order
-  de: Online bestellen
-  en: Order online
-- schluessel: offer.order-chip
-  de: Zum Bestellportal
-  en: Go to order portal
-- schluessel: dishes.eyebrow
-  de: null
-  en: Menu
-- schluessel: dishes.title
-  de: null
-  en: Our specialities
-- schluessel: dishes.sub
-  de: null
-  en: Fresh herbs, vibrant flavours, homemade broths — this is how Vietnam tastes.
-- schluessel: dish.1
-  de: null
-  en: Vietnamese noodle soup with beef and fresh herbs.
-- schluessel: dish.2
-  de: null
-  en: Crispy rice flour crêpe with prawns, beef or tofu.
-- schluessel: dish.3
-  de: null
-  en: Fresh summer rolls — also available vegetarian.
-- schluessel: dish.4
-  de: null
-  en: Rice noodles with homemade spring rolls and salad.
-- schluessel: dish.5
-  de: null
-  en: Spicy-sour papaya salad with peanuts.
-- schluessel: dish.6
-  de: null
-  en: Wok noodles, individually assembled to your taste.
-- schluessel: loc.eyebrow
-  de: Standorte
-  en: Locations
-- schluessel: loc.title
-  de: Drei Orte in Basel
-  en: Three places in Basel
-- schluessel: loc.sub
-  de: Ob Restaurant, Streetfood-Stand oder Food-Corner – Nón Lá ist an drei zentralen Orten in Basel für Sie da.
-  en: Restaurant, street food stall or food corner — Nón Lá is there for you at three central spots in Basel.
-- schluessel: loc.1.tag
-  de: Restaurant
-  en: Restaurant
-- schluessel: loc.1.name
-  de: Vietnamese Kitchen Spalenbrunnen
-  en: Vietnamese Kitchen Spalenbrunnen
-- schluessel: loc.1.note
-  de: Reservationen gerne für den Abend und Samstagmittag.
-  en: Reservations gladly accepted for evenings and Saturday lunchtime.
-- schluessel: loc.1.cta
-  de: Tisch reservieren
-  en: Reserve a table
-- schluessel: loc.2.tag
-  de: Streetfood
-  en: Streetfood
-- schluessel: loc.2.name
-  de: Vietnamese Streetfood Alte Markthalle
-  en: Vietnamese Streetfood Old Market Hall
-- schluessel: loc.2.min
-  de: 3 Min. vom Bahnhof SBB
-  en: 3 min from SBB station
-- schluessel: loc.2.note
-  de: Reservationen direkt über die Markthalle. Feiertage gemäss Markthalle-Öffnungszeiten.
-  en: Reservations directly via the Market Hall. Public holidays according to Market Hall opening hours.
-- schluessel: loc.2.cta
-  de: Speisekarte ansehen
-  en: See menu
-- schluessel: loc.3.tag
-  de: Corner
-  en: Corner
-- schluessel: loc.3.name
-  de: Vietnamese Corner Klara
-  en: Vietnamese Corner Klara
-- schluessel: loc.3.min
-  de: Im Klara Basel
-  en: Inside Klara Basel
-- schluessel: loc.3.note
-  de: Feiertage gemäss Öffnungszeiten Klara.
-  en: Public holidays according to Klara opening hours.
-- schluessel: loc.3.cta
-  de: Speisekarte ansehen
-  en: See menu
-- schluessel: loc.closed
-  de: geschlossen
-  en: closed
-- schluessel: loc.hint
-  de: Die Küche schliesst jeweils eine halbe Stunde vor Schluss.
-  en: The kitchen closes half an hour before closing time.
-- schluessel: cat.eyebrow
-  de: Catering
-  en: Catering
-- schluessel: cat.title
-  de: Wir kommen zu Ihnen.
-  en: We come to you.
-- schluessel: cat.text
-  de: Auch an Ihrem Privat- oder Firmenanlass müssen Sie nicht auf die herrliche vietnamesische Küche verzichten. Wir unterbreiten Ihnen gerne eine unverbindliche Offerte.
-  en: You don't have to miss out on wonderful Vietnamese cuisine at your private or corporate event either. We will gladly prepare a non-binding quote for you.
-- schluessel: cat.cta
-  de: Offerte einholen
-  en: Request a quote
-- schluessel: ft.tag
-  de: Vietnamese Kitchen · Streetfood · Corner — Basel
-  en: Vietnamese Kitchen · Streetfood · Corner — Basel
-- schluessel: ft.contact
-  de: Kontakt
-  en: Contact
-- schluessel: ft.links
-  de: null
-  en: Quick links
-- schluessel: ft.l1
-  de: null
-  en: Spalenbrunnen lunch menu
-- schluessel: ft.l2
-  de: null
-  en: Spalenbrunnen dinner menu
-- schluessel: ft.l3
-  de: null
-  en: Order online
-- schluessel: ft.visit
-  de: Standorte
-  en: Locations
-- schluessel: ft.s1
-  de: Kitchen Spalenbrunnen
-  en: Kitchen Spalenbrunnen
-- schluessel: ft.s2
-  de: Streetfood Markthalle
-  en: Streetfood Markthalle
-- schluessel: ft.s3
-  de: Corner Klara
-  en: Corner Klara
-- schluessel: ft.credits
-  de: 'Fotos: Antonio Mollo (fotostudio71.ch), Yasser Booley · Original-Design: foliis.ch · Redesign-Konzept'
-  en: 'Photos: Antonio Mollo, fotostudio71.ch · Redesign concept'
-- schluessel: bo.crumb
-  de: Online bestellen
-  en: Order online
-- schluessel: bo.cutlery
-  de: Bitte beachten Sie, dass wir der Umwelt zuliebe standardmässig kein Besteck mitliefern. Bitte wählen Sie bei Bedarf die gewünschte Anzahl Besteck-Sets in der ersten Kategorie.
-  en: To protect the environment, cutlery is not included by default. Please select the desired number of cutlery sets in the first category if needed.
-- schluessel: bo.del-note
-  de: Auch über velogourmet.ch, eat.ch und ubereats.ch – Lieferung über unsere Partner.
-  en: Also via velogourmet.ch, eat.ch and ubereats.ch – delivery through our partners.
-- schluessel: bo.del-text
-  de: 'Abends und samstags ganztags liefern wir Ihnen unsere vietnamesischen Klassiker nach Hause:'
-  en: 'In the evenings and all day on Saturdays we deliver our Vietnamese classics to your home:'
-- schluessel: bo.del-title
-  de: Lieferung nach Hause
-  en: Home delivery
-- schluessel: bo.eyebrow
-  de: Take Away & Lieferung
-  en: Take away &amp; delivery
-- schluessel: bo.lead
-  de: Lassen Sie sich unser Street-Food-Angebot nach Hause liefern oder holen Sie es bequem ab – bei allen Take-Away-Speisen sind bereits 10% für die Selbstabholung abgezogen.
-  en: Have our street food delivered to your home or pick it up conveniently – all take-away dishes already include a 10% discount for collection.
-- schluessel: bo.ta-text
-  de: 'Bestellen Sie direkt bei uns – mit 10% Rabatt für Selbstabholung. Wählen Sie die gewünschte Bestellart:'
-  en: 'Order directly from us – with a 10% discount for collection. Choose how you would like to order:'
-- schluessel: bo.ta-title
-  de: Take Away · Mittag & Abend
-  en: Take away · Lunch &amp; dinner
-- schluessel: bo.times-day
-  de: Tag
-  en: Day
-- schluessel: bo.times-note
-  de: Abholung am Spalenbrunnen, Schützenmattstrasse 1, 4051 Basel.
-  en: Collection at Spalenbrunnen, Schützenmattstrasse 1, 4051 Basel.
-- schluessel: bo.times-time
-  de: Zeit
-  en: Time
-- schluessel: bo.times-title
-  de: Bestellzeiten Spalenbrunnen
-  en: Order times Spalenbrunnen
-- schluessel: bo.title
-  de: Online bestellen
-  en: Order online
-- schluessel: bo.to-menu
-  de: Zur Abendkarte
-  en: To the dinner menu
-- schluessel: days.disa
-  de: Di – Sa
-  en: Tue – Sat
-- schluessel: days.fr
-  de: Fr
-  en: Fri
-- schluessel: days.mo
-  de: Mo
-  en: Mon
-- schluessel: days.modo
-  de: Mo – Do
-  en: Mon – Thu
-- schluessel: days.mofr
-  de: Mo – Fr
-  en: Mon – Fri
-- schluessel: days.sa
-  de: Sa
-  en: Sat
-- schluessel: days.saso
-  de: Sa – So
-  en: Sat – Sun
-- schluessel: days.so
-  de: So
-  en: Sun
-- schluessel: ft.menus
-  de: Speisekarten
-  en: Menus
-- schluessel: loc.2.name-short
-  de: Markthalle
-  en: Market Hall
-- schluessel: loc.feedback
-  de: 'Wir freuen uns auf Ihr Feedback – am liebsten natürlich positiv. Wenn Ihnen etwas nicht geschmeckt oder unser Service nicht Ihren Ansprüchen entsprochen hat, sagen Sie es uns gerne:'
-  en: 'We look forward to your feedback – preferably positive, of course. If something didn''t taste right or our service didn''t meet your expectations, please let us know:'
-- schluessel: nav.home
-  de: Start
-  en: Home
-- schluessel: nav.menu1
-  de: Alte Markthalle
-  en: Old Market Hall
-- schluessel: nav.menu2
-  de: Spalenbrunnen mittags
-  en: Spalenbrunnen lunch
-- schluessel: nav.menu3
-  de: Spalenbrunnen abends
-  en: Spalenbrunnen dinner
-- schluessel: nav.menu4
-  de: Klara
-  en: Klara
-- schluessel: nav.menus
-  de: Speisekarten <span class="caret" aria-hidden="true">▾</span>
-  en: Menus <span aria-hidden="true" class="caret">▾</span>
-- schluessel: nav.order
-  de: Bestellen
-  en: Order
-- schluessel: offer.more
-  de: Weitere Mittagskarten
-  en: More lunch menus
-- schluessel: offer.dinner-more
-  de: Weitere Abendkarten
-  en: More dinner menus
-- schluessel: rz.crumb
-  de: Reservation
-  en: Reservation
-- schluessel: rz.eyebrow
-  de: Vietnamese Kitchen Spalenbrunnen
-  en: Vietnamese Kitchen Spalenbrunnen
-- schluessel: rz.fallback
-  de: 'Falls das Reservierungsfenster nicht lädt:'
-  en: 'If the reservation window does not load:'
-- schluessel: rz.fallback-link
-  de: Reservation in neuem Fenster öffnen
-  en: Open reservation in a new window
-- schluessel: rz.lead
-  de: Reservationen nehmen wir gerne für den Abend und Samstagmittag entgegen. Wir freuen uns auf Ihren Besuch.
-  en: We gladly accept reservations for the evening and Saturday lunchtime. We look forward to your visit.
-- schluessel: rz.phone
-  de: 'Oder telefonisch:'
-  en: 'Or by phone:'
-- schluessel: rz.title
-  de: Tisch reservieren
-  en: Reserve a table
+  - schluessel: nav.brand-sub
+    de: null
+    en: Vietnamese Kitchen
+  - schluessel: nav.catering
+    de: Catering
+    en: Catering
+  - schluessel: nav.about
+    de: Über uns
+    en: About
+  - schluessel: nav.offer
+    de: null
+    en: Menu
+  - schluessel: nav.dishes
+    de: null
+    en: Dishes
+  - schluessel: nav.locations
+    de: Standorte
+    en: Locations
+  - schluessel: nav.contact
+    de: Kontakt
+    en: Contact
+  - schluessel: nav.reserve
+    de: Tisch reservieren
+    en: Reserve a table
+  - schluessel: hero.eyebrow
+    de: Vietnamesische Küche · Basel
+    en: Vietnamese cuisine · Basel
+  - schluessel: hero.t1
+    de: Ein Stück
+    en: A piece of
+  - schluessel: hero.t2
+    de: Vietnam
+    en: Vietnam
+  - schluessel: hero.t3
+    de: mitten in Basel.
+    en: in the heart of Basel.
+  - schluessel: hero.lead
+    de: Frisch, aromatisch und hausgemacht – bei Nón Lá geniessen Sie authentische
+      vietnamesische Küche. Am Spalenbrunnen, in der Alten Markthalle und im
+      Klara.
+    en: Fresh, aromatic and homemade — at Nón Lá you enjoy authentic Vietnamese
+      cuisine. At Spalenbrunnen, in the Old Market Hall and at Klara.
+  - schluessel: hero.cta1
+    de: Tisch reservieren
+    en: Reserve a table
+  - schluessel: hero.cta2
+    de: Speisekarten entdecken
+    en: Explore dishes
+  - schluessel: hero.fact1
+    de: <strong>Mittagsbuffet</strong> Mo bis Fr
+    en: <strong>Lunch buffet</strong> Mon to Fri
+  - schluessel: hero.fact2
+    de: <strong>Take Away</strong> −10% Rabatt
+    en: <strong>Take away</strong> −10% discount
+  - schluessel: hero.fact3
+    de: <strong>Lieferung</strong> über velogourmet, eat.ch & Uber Eats
+    en: <strong>Delivery</strong> via velogourmet, eat.ch & Uber Eats
+  - schluessel: hero.card-title
+    de: Drei Orte, ein Geschmack
+    en: Three places, one taste
+  - schluessel: hero.card-text
+    de: Kitchen Spalenbrunnen · Streetfood Markthalle · Corner Klara
+    en: Kitchen Spalenbrunnen · Streetfood Markthalle · Corner Klara
+  - schluessel: mq.1
+    de: Authentisch vietnamesisch
+    en: Authentic Vietnamese
+  - schluessel: mq.2
+    de: Mittagsbuffet Mo bis Fr
+    en: Lunch buffet Mon to Fri
+  - schluessel: mq.3
+    de: Take Away −10%
+    en: Take away −10%
+  - schluessel: mq.4
+    de: Catering für Ihren Anlass
+    en: Catering for your event
+  - schluessel: mq.5
+    de: Frisch & hausgemacht
+    en: Fresh & homemade
+  - schluessel: about.eyebrow
+    de: Über uns
+    en: About us
+  - schluessel: about.title
+    de: Chào & herzlich willkommen.
+    en: Chào & welcome.
+  - schluessel: about.p1
+    de: Nón Lá ist in Basel zu Hause – im eindrucksvollen, einzigartigen Ambiente
+      der Alten Markthalle, am Spalenbrunnen und im Klara zwischen Messe und
+      Claraplatz. Bei uns finden Sie an allen drei Standorten eine grosse
+      Auswahl an frisch zubereiteten, authentischen vietnamesischen Speisen.
+    en: Nón Lá is at home in Basel – in the impressive, unique ambience of the Old
+      Market Hall, at Spalenbrunnen and at Klara, between Messe Basel and
+      Claraplatz. At all three locations you will find a wide selection of
+      freshly prepared, authentic Vietnamese dishes.
+  - schluessel: about.p2
+    de: Über Mittag (Mo bis Fr) erwartet Sie ein abwechslungsreiches Buffet. Unsere
+      beliebten Fried Noodles stellen Sie nach Ihrem persönlichen Geschmack
+      zusammen.
+    en: At lunchtime (Mon to Fri) a varied buffet awaits you. Our popular Fried
+      Noodles can be assembled to your personal taste.
+  - schluessel: about.hat
+    de: Der «Nón Lá» – der traditionelle Kegelhut aus Bambus und Palmblättern, ein
+      Wahrzeichen Vietnams.
+    en: The “Nón Lá” – the traditional conical hat made of bamboo and palm leaves,
+      an icon of Vietnam.
+  - schluessel: about.quote
+    de: «Er wird von Menschen getragen, die im Freien arbeiten – zum Schutz vor
+      Sonne und Regen.»
+    en: “It is worn by people working outdoors – protecting them from sun and rain.”
+  - schluessel: about.quote-by
+    de: Über den Namen Nón Lá
+    en: About the name Nón Lá
+  - schluessel: offer.eyebrow
+    de: Aktuelles & Angebot
+    en: What we offer
+  - schluessel: offer.title
+    de: Mittag & Abend
+    en: Lunch & Dinner
+  - schluessel: offer.sub
+    de: "Ob schnelles Mittagessen, gemütlicher Abend oder zuhause: Nón Lá ist
+      flexibel. Die Küche schliesst jeweils eine halbe Stunde vor Schluss."
+    en: A quick lunch, a cosy dinner or a night in — Nón Lá is flexible. The kitchen
+      closes half an hour before closing time.
+  - schluessel: offer.lunch-title
+    de: Mittagsangebot
+    en: Lunch menu
+  - schluessel: offer.lunch-text
+    de: Mo bis Fr abwechslungsreiches Buffet und kleine Karte – frisch, schnell und
+      sättigend. Selbstbedienung an der Theke.
+    en: "Monday to Friday: a varied buffet of fresh Vietnamese dishes — quick, tasty
+      and filling."
+  - schluessel: offer.lunch-menu
+    de: Mittagskarte Spalenbrunnen
+    en: See lunch menu
+  - schluessel: offer.delivery
+    de: null
+    en: Delivery via
+  - schluessel: offer.dinner-title
+    de: Abendangebot
+    en: Dinner menu
+  - schluessel: offer.dinner-text
+    de: Am Abend und Samstag serviert unser Team à la carte an den Tisch – und für
+      Zuhause gibt es <strong>10% Rabatt</strong> auf Take Away.
+    en: In the evening we serve our classics à la carte — and for home there is
+      <strong>10% off</strong> take away.
+  - schluessel: offer.dinner-menu
+    de: Abendkarte Spalenbrunnen
+    en: See dinner menu
+  - schluessel: offer.order
+    de: Online bestellen
+    en: Order online
+  - schluessel: offer.order-chip
+    de: Zum Bestellportal
+    en: Go to order portal
+  - schluessel: dishes.eyebrow
+    de: null
+    en: Menu
+  - schluessel: dishes.title
+    de: null
+    en: Our specialities
+  - schluessel: dishes.sub
+    de: null
+    en: Fresh herbs, vibrant flavours, homemade broths — this is how Vietnam tastes.
+  - schluessel: dish.1
+    de: null
+    en: Vietnamese noodle soup with beef and fresh herbs.
+  - schluessel: dish.2
+    de: null
+    en: Crispy rice flour crêpe with prawns, beef or tofu.
+  - schluessel: dish.3
+    de: null
+    en: Fresh summer rolls — also available vegetarian.
+  - schluessel: dish.4
+    de: null
+    en: Rice noodles with homemade spring rolls and salad.
+  - schluessel: dish.5
+    de: null
+    en: Spicy-sour papaya salad with peanuts.
+  - schluessel: dish.6
+    de: null
+    en: Wok noodles, individually assembled to your taste.
+  - schluessel: loc.eyebrow
+    de: Standorte
+    en: Locations
+  - schluessel: loc.title
+    de: Drei Orte in Basel
+    en: Three places in Basel
+  - schluessel: loc.sub
+    de: Ob Restaurant, Streetfood-Stand oder Food-Corner – Nón Lá ist an drei
+      zentralen Orten in Basel für Sie da.
+    en: Restaurant, street food stall or food corner — Nón Lá is there for you at
+      three central spots in Basel.
+  - schluessel: loc.1.tag
+    de: Restaurant
+    en: Restaurant
+  - schluessel: loc.1.name
+    de: Vietnamese Kitchen Spalenbrunnen
+    en: Vietnamese Kitchen Spalenbrunnen
+  - schluessel: loc.1.note
+    de: Reservationen gerne für den Abend und Samstagmittag.
+    en: Reservations gladly accepted for evenings and Saturday lunchtime.
+  - schluessel: loc.1.cta
+    de: Tisch reservieren
+    en: Reserve a table
+  - schluessel: loc.2.tag
+    de: Streetfood
+    en: Streetfood
+  - schluessel: loc.2.name
+    de: Vietnamese Streetfood Alte Markthalle
+    en: Vietnamese Streetfood Old Market Hall
+  - schluessel: loc.2.min
+    de: 3 Min. vom Bahnhof SBB
+    en: 3 min from SBB station
+  - schluessel: loc.2.note
+    de: Reservationen direkt über die Markthalle. Feiertage gemäss
+      Markthalle-Öffnungszeiten.
+    en: Reservations directly via the Market Hall. Public holidays according to
+      Market Hall opening hours.
+  - schluessel: loc.2.cta
+    de: Speisekarte ansehen
+    en: See menu
+  - schluessel: loc.3.tag
+    de: Corner
+    en: Corner
+  - schluessel: loc.3.name
+    de: Vietnamese Corner Klara
+    en: Vietnamese Corner Klara
+  - schluessel: loc.3.min
+    de: Im Klara Basel
+    en: Inside Klara Basel
+  - schluessel: loc.3.note
+    de: Feiertage gemäss Öffnungszeiten Klara.
+    en: Public holidays according to Klara opening hours.
+  - schluessel: loc.3.cta
+    de: Speisekarte ansehen
+    en: See menu
+  - schluessel: loc.closed
+    de: geschlossen
+    en: closed
+  - schluessel: loc.hint
+    de: Die Küche schliesst jeweils eine halbe Stunde vor Schluss.
+    en: The kitchen closes half an hour before closing time.
+  - schluessel: cat.eyebrow
+    de: Catering
+    en: Catering
+  - schluessel: cat.title
+    de: Wir kommen zu Ihnen.
+    en: We come to you.
+  - schluessel: cat.text
+    de: Auch an Ihrem Privat- oder Firmenanlass müssen Sie nicht auf die herrliche
+      vietnamesische Küche verzichten. Wir unterbreiten Ihnen gerne eine
+      unverbindliche Offerte.
+    en: You don't have to miss out on wonderful Vietnamese cuisine at your private
+      or corporate event either. We will gladly prepare a non-binding quote for
+      you.
+  - schluessel: cat.cta
+    de: Offerte einholen
+    en: Request a quote
+  - schluessel: ft.tag
+    de: Vietnamese Kitchen · Streetfood · Corner — Basel
+    en: Vietnamese Kitchen · Streetfood · Corner — Basel
+  - schluessel: ft.contact
+    de: Kontakt
+    en: Contact
+  - schluessel: ft.links
+    de: null
+    en: Quick links
+  - schluessel: ft.l1
+    de: null
+    en: Spalenbrunnen lunch menu
+  - schluessel: ft.l2
+    de: null
+    en: Spalenbrunnen dinner menu
+  - schluessel: ft.l3
+    de: null
+    en: Order online
+  - schluessel: ft.visit
+    de: Standorte
+    en: Locations
+  - schluessel: ft.s1
+    de: Kitchen Spalenbrunnen
+    en: Kitchen Spalenbrunnen
+  - schluessel: ft.s2
+    de: Streetfood Markthalle
+    en: Streetfood Markthalle
+  - schluessel: ft.s3
+    de: Corner Klara
+    en: Corner Klara
+  - schluessel: ft.credits
+    de: "Fotos: Antonio Mollo (fotostudio71.ch), Yasser Booley | designed by
+      güsnenin torunu"
+    en: "Photos: Antonio Mollo (fotostudio71.ch), Yasser Booley | designed by
+      güsnenin torunu"
+  - schluessel: bo.crumb
+    de: Online bestellen
+    en: Order online
+  - schluessel: bo.cutlery
+    de: Bitte beachten Sie, dass wir der Umwelt zuliebe standardmässig kein Besteck
+      mitliefern. Bitte wählen Sie bei Bedarf die gewünschte Anzahl Besteck-Sets
+      in der ersten Kategorie.
+    en: To protect the environment, cutlery is not included by default. Please
+      select the desired number of cutlery sets in the first category if needed.
+  - schluessel: bo.del-note
+    de: Auch über velogourmet.ch, eat.ch und ubereats.ch – Lieferung über unsere
+      Partner.
+    en: Also via velogourmet.ch, eat.ch and ubereats.ch – delivery through our
+      partners.
+  - schluessel: bo.del-text
+    de: "Abends und samstags ganztags liefern wir Ihnen unsere vietnamesischen
+      Klassiker nach Hause:"
+    en: "In the evenings and all day on Saturdays we deliver our Vietnamese classics
+      to your home:"
+  - schluessel: bo.del-title
+    de: Lieferung nach Hause
+    en: Home delivery
+  - schluessel: bo.eyebrow
+    de: Take Away & Lieferung
+    en: Take away &amp; delivery
+  - schluessel: bo.lead
+    de: Lassen Sie sich unser Street-Food-Angebot nach Hause liefern oder holen Sie
+      es bequem ab – bei allen Take-Away-Speisen sind bereits 10% für die
+      Selbstabholung abgezogen.
+    en: Have our street food delivered to your home or pick it up conveniently – all
+      take-away dishes already include a 10% discount for collection.
+  - schluessel: bo.ta-text
+    de: "Bestellen Sie direkt bei uns – mit 10% Rabatt für Selbstabholung. Wählen
+      Sie die gewünschte Bestellart:"
+    en: "Order directly from us – with a 10% discount for collection. Choose how you
+      would like to order:"
+  - schluessel: bo.ta-title
+    de: Take Away · Mittag & Abend
+    en: Take away · Lunch &amp; dinner
+  - schluessel: bo.times-day
+    de: Tag
+    en: Day
+  - schluessel: bo.times-note
+    de: Abholung am Spalenbrunnen, Schützenmattstrasse 1, 4051 Basel.
+    en: Collection at Spalenbrunnen, Schützenmattstrasse 1, 4051 Basel.
+  - schluessel: bo.times-time
+    de: Zeit
+    en: Time
+  - schluessel: bo.times-title
+    de: Bestellzeiten Spalenbrunnen
+    en: Order times Spalenbrunnen
+  - schluessel: bo.title
+    de: Online bestellen
+    en: Order online
+  - schluessel: bo.to-menu
+    de: Zur Abendkarte
+    en: To the dinner menu
+  - schluessel: days.disa
+    de: Di – Sa
+    en: Tue – Sat
+  - schluessel: days.fr
+    de: Fr
+    en: Fri
+  - schluessel: days.mo
+    de: Mo
+    en: Mon
+  - schluessel: days.modo
+    de: Mo – Do
+    en: Mon – Thu
+  - schluessel: days.mofr
+    de: Mo – Fr
+    en: Mon – Fri
+  - schluessel: days.sa
+    de: Sa
+    en: Sat
+  - schluessel: days.saso
+    de: Sa – So
+    en: Sat – Sun
+  - schluessel: days.so
+    de: So
+    en: Sun
+  - schluessel: ft.menus
+    de: Speisekarten
+    en: Menus
+  - schluessel: loc.2.name-short
+    de: Markthalle
+    en: Market Hall
+  - schluessel: loc.feedback
+    de: "Wir freuen uns auf Ihr Feedback – am liebsten natürlich positiv. Wenn Ihnen
+      etwas nicht geschmeckt oder unser Service nicht Ihren Ansprüchen
+      entsprochen hat, sagen Sie es uns gerne:"
+    en: "We look forward to your feedback – preferably positive, of course. If
+      something didn't taste right or our service didn't meet your expectations,
+      please let us know:"
+  - schluessel: nav.home
+    de: Start
+    en: Home
+  - schluessel: nav.menu1
+    de: Alte Markthalle
+    en: Old Market Hall
+  - schluessel: nav.menu2
+    de: Spalenbrunnen mittags
+    en: Spalenbrunnen lunch
+  - schluessel: nav.menu3
+    de: Spalenbrunnen abends
+    en: Spalenbrunnen dinner
+  - schluessel: nav.menu4
+    de: Klara
+    en: Klara
+  - schluessel: nav.menus
+    de: Speisekarten <span class="caret" aria-hidden="true">▾</span>
+    en: Menus <span aria-hidden="true" class="caret">▾</span>
+  - schluessel: nav.order
+    de: Bestellen
+    en: Order
+  - schluessel: offer.more
+    de: Weitere Mittagskarten
+    en: More lunch menus
+  - schluessel: offer.dinner-more
+    de: Weitere Abendkarten
+    en: More dinner menus
+  - schluessel: rz.crumb
+    de: Reservation
+    en: Reservation
+  - schluessel: rz.eyebrow
+    de: Vietnamese Kitchen Spalenbrunnen
+    en: Vietnamese Kitchen Spalenbrunnen
+  - schluessel: rz.fallback
+    de: "Falls das Reservierungsfenster nicht lädt:"
+    en: "If the reservation window does not load:"
+  - schluessel: rz.fallback-link
+    de: Reservation in neuem Fenster öffnen
+    en: Open reservation in a new window
+  - schluessel: rz.lead
+    de: Reservationen nehmen wir gerne für den Abend und Samstagmittag entgegen. Wir
+      freuen uns auf Ihren Besuch.
+    en: We gladly accept reservations for the evening and Saturday lunchtime. We
+      look forward to your visit.
+  - schluessel: rz.phone
+    de: "Oder telefonisch:"
+    en: "Or by phone:"
+  - schluessel: rz.title
+    de: Tisch reservieren
+    en: Reserve a table
