@@ -175,4 +175,51 @@
       if (e.key === "Escape") close();
     });
   })();
+
+  /* ---------- Hero-Bildwechsel (Startseite) ---------- */
+  (function () {
+    const ROTATE = [
+      { src: "images/hero-restaurant.jpg", pos: "50% 50%" },
+      { src: "images/dish-pho.jpg", pos: "50% 55%" },
+      { src: "images/dish-banh-mi.jpg", pos: "50% 60%" },
+      { src: "images/dish-goi-cuon.jpg", pos: "50% 50%" },
+      { src: "images/dish-bun-bo-nam-bo.jpg", pos: "50% 55%" },
+    ];
+    const base = document.querySelector(".hero__figure img");
+    if (!base || ROTATE.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    ROTATE.forEach((item) => { const pre = new Image(); pre.src = item.src; });
+
+    const alt = document.createElement("img");
+    alt.className = "hero__fade";
+    alt.alt = "";
+    alt.setAttribute("aria-hidden", "true");
+    base.parentElement.appendChild(alt);
+
+    let current = 0;
+    let busy = false;
+
+    function apply(img, item) {
+      img.src = item.src;
+      img.style.objectPosition = item.pos;
+    }
+
+    function next() {
+      if (busy || document.hidden) return;
+      busy = true;
+      const upcoming = ROTATE[(current + 1) % ROTATE.length];
+      apply(alt, upcoming);
+      requestAnimationFrame(() => { alt.style.opacity = "1"; });
+      setTimeout(() => {
+        apply(base, upcoming);
+        alt.style.opacity = "0";
+        current = (current + 1) % ROTATE.length;
+        setTimeout(() => { busy = false; }, 1200);
+      }, 1600);
+    }
+
+    base.style.objectPosition = ROTATE[0].pos;
+    setInterval(next, 6000);
+  })();
 })();

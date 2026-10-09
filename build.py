@@ -432,7 +432,9 @@ def build(verify=False):
     for name in HTML_PAGES + ["script-v2.js"]:
         template_text = (TEMPLATES / name).read_text(encoding="utf-8")
         rendered = render_template(template_text, data, blocks, name)
-        (DIST / name).write_text(rendered, encoding="utf-8")
+        # immer LF schreiben (unabhaengig vom Betriebssystem)
+        with open(DIST / name, "w", encoding="utf-8", newline="\n") as f:
+            f.write(rendered)
 
     shutil.copy2(ROOT / "styles-v2.css", DIST / "styles-v2.css")
     shutil.copytree(ROOT / "images", DIST / "images")
