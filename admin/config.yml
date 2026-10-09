@@ -7,13 +7,11 @@
 
 backend:
   name: github
-  # GitHub-Benutzername und Repositoryname eintragen, z. B.:
-  # repo: mein-benutzer/nonla-website
-  repo: BITTE-EINTRAGEN/nonla-website
+  repo: hanso31/nonla-website
   branch: main
   # Adresse der fertigen Seite (Cloudflare Pages) – der Login-Endpunkt
   # /api/auth wird von functions/ im Projekt bereitgestellt.
-  base_url: https://BITTE-EINTRAGEN.pages.dev
+  base_url: https://nonla-website.pages.dev
   auth_endpoint: api/auth
 
 locale: de
