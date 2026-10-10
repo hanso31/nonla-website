@@ -66,7 +66,16 @@
     else setTimeout(() => mobileMenu.setAttribute("hidden", ""), 400);
   }
 
-  burger.addEventListener("click", () => toggleMenu(!mobileMenu.classList.contains("is-open")));
+  let lastMenuToggleAt = 0;
+  burger.addEventListener("click", () => {
+    // Doppel-Fire innerhalb eines Gesten-Zyklus ignorieren (tritt u.a. auf
+    // iOS auf, waehrend laeuft Bildwechsel/Animation – sonst oeffnet und
+    // schliesst das Menue im selben Tastendruck wieder).
+    const now = Date.now();
+    if (now - lastMenuToggleAt < 350) return;
+    lastMenuToggleAt = now;
+    toggleMenu(!mobileMenu.classList.contains("is-open"));
+  });
   mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => toggleMenu(false)));
 
   /* ---------- Reveal on scroll ---------- */
