@@ -181,14 +181,11 @@ section { scroll-margin-top: 96px; }
   touch-action: manipulation;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  transition: background-color 0.4s var(--ease), box-shadow 0.4s var(--ease),
-    backdrop-filter 0.4s var(--ease);
+  transition: background-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
 .nav.is-scrolled {
-  background: rgba(245, 239, 227, 0.86);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(245, 239, 227, 0.94);
   box-shadow: 0 1px 0 var(--line);
 }
 
@@ -314,9 +311,7 @@ section { scroll-margin-top: 96px; }
   position: fixed;
   inset: 0;
   z-index: 55;
-  background: rgba(245, 239, 227, 0.97);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: #f6f1e7;
   touch-action: manipulation;
   display: flex;
   align-items: center;
@@ -1648,8 +1643,7 @@ section { scroll-margin-top: 96px; }
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(20, 42, 29, 0.88);
-  backdrop-filter: blur(6px);
+  background: rgba(20, 42, 29, 0.94);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1704,4 +1698,4 @@ section { scroll-margin-top: 96px; }
 }
 .catering--page .catering__bg { position: absolute; }
 .catering--page .section__title { font-size: clamp(2.4rem, 5vw, 4rem); }
-.nav--solid { background: rgba(245, 239, 227, 0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
+.nav--solid { background: rgba(245, 239, 227, 0.94); box-shadow: 0 1px 0 var(--line); }
