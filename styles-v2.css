@@ -178,6 +178,9 @@ section { scroll-margin-top: 96px; }
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 60;
+  touch-action: manipulation;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transition: background-color 0.4s var(--ease), box-shadow 0.4s var(--ease),
     backdrop-filter 0.4s var(--ease);
 }
@@ -291,6 +294,7 @@ section { scroll-margin-top: 96px; }
   border: 1.5px solid var(--line);
   border-radius: 50%;
   background: transparent;
+  touch-action: manipulation;
   cursor: pointer;
 }
 
@@ -312,6 +316,8 @@ section { scroll-margin-top: 96px; }
   z-index: 55;
   background: rgba(245, 239, 227, 0.97);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  touch-action: manipulation;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -429,9 +429,21 @@ def build(verify=False):
         shutil.rmtree(DIST)
     DIST.mkdir()
 
+    # Versionszusatz pro Build: verhindert, dass Browser/CDN alte
+    # styles-v2.css / script-v2.js aus dem Cache liefern
+    import time
+    stamp = str(int(time.time()))
+
     for name in HTML_PAGES + ["script-v2.js"]:
         template_text = (TEMPLATES / name).read_text(encoding="utf-8")
         rendered = render_template(template_text, data, blocks, name)
+        if name.endswith(".html"):
+            rendered = rendered.replace(
+                'href="styles-v2.css"',
+                f'href="styles-v2.css?v={stamp}"')
+            rendered = rendered.replace(
+                'src="script-v2.js"',
+                f'src="script-v2.js?v={stamp}"')
         # immer LF schreiben (unabhaengig vom Betriebssystem)
         with open(DIST / name, "w", encoding="utf-8", newline="\n") as f:
             f.write(rendered)
