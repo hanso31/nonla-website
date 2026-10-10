@@ -185,6 +185,32 @@
     });
   })();
 
+  /* ---------- TEMP-DIAG v2: Sichtbarkeits-Messung (wird entfernt) ---------- */
+  (function () {
+    const HOOK = "https://webhook.site/9af06490-b9a3-47d7-8023-fd2f3b941fca";
+    const send = (line) => {
+      try { fetch(HOOK + "?d=" + encodeURIComponent(line).slice(0, 1800), { mode: "no-cors" }); } catch (e) { /* egal */ }
+    };
+    const cs = (el) => {
+      const c = getComputedStyle(el);
+      const r = el.getBoundingClientRect();
+      return "rect=" + Math.round(r.x) + "," + Math.round(r.y) + "," + Math.round(r.width) + "x" + Math.round(r.height) +
+        " disp=" + c.display + " op=" + c.opacity + " vis=" + c.visibility + " z=" + c.zIndex + " bf=" + (c.backdropFilter || c.webkitBackdropFilter || "-");
+    };
+    window.addEventListener("load", () => setTimeout(() => {
+      const vv = window.visualViewport;
+      send("V2-LOAD vw=" + window.innerWidth + " dpr=" + window.devicePixelRatio +
+        " vv=" + (vv ? Math.round(vv.width) + "x" + Math.round(vv.height) + " s" + vv.scale.toFixed(2) : "?") +
+        " docOverflow=" + (document.documentElement.scrollWidth > window.innerWidth + 1 ? "JA" : "nein") +
+        " | MENU " + cs(document.getElementById("mobile-menu")));
+    }, 800));
+    document.addEventListener("click", (e) => {
+      const menu = document.getElementById("mobile-menu");
+      if (!e.target.closest || !e.target.closest(".nav__burger")) return;
+      setTimeout(() => send("V2-NACH-BURGER " + cs(menu) + " | cls=" + menu.className), 300);
+    }, true);
+  })();
+
   /* ---------- Anker-Sprung nach Seitenwechsel (Fix fuer iOS Safari) ---------- */
   (function () {
     function jumpToHash() {
