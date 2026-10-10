@@ -185,33 +185,6 @@
     });
   })();
 
-  /* ---------- TEMP-DIAG: Tap-Diagnose (wird nach Fehleranalyse entfernt) ---------- */
-  (function () {
-    const HOOK = "https://webhook.site/9af06490-b9a3-47d7-8023-fd2f3b941fca";
-    const diag = document.createElement("div");
-    diag.setAttribute("data-tapdiag", "");
-    diag.style.cssText = "position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#0f0;font:11px/1.4 monospace;padding:4px 6px;white-space:pre-wrap;pointer-events:none;";
-    diag.textContent = "DIAG: " + navigator.userAgent.slice(0, 110);
-    document.body.appendChild(diag);
-    const send = (line) => {
-      try { fetch(HOOK + "?d=" + encodeURIComponent(line).slice(0, 1800), { mode: "no-cors" }); } catch (e) { /* egal */ }
-    };
-    send("DIAG-START vw=" + window.innerWidth + " UA=" + navigator.userAgent.slice(0, 160));
-    ["touchstart", "touchend", "click"].forEach((type) =>
-      document.addEventListener(type, (e) => {
-        const t = e.target;
-        const p = e.clientX != null ? document.elementFromPoint(e.clientX, e.clientY) : null;
-        const menu = document.getElementById("mobile-menu");
-        const line =
-          type + " auf " + t.tagName + "." + (typeof t.className === "string" ? t.className : "-") +
-          " | anPunkt: " + (p ? p.tagName + "." + (typeof p.className === "string" ? p.className : "-") : "n/a") +
-          " | Menue: " + (menu ? menu.className : "?");
-        diag.textContent = line;
-        send(line);
-      }, true)
-    );
-  })();
-
   /* ---------- Anker-Sprung nach Seitenwechsel (Fix fuer iOS Safari) ---------- */
   (function () {
     function jumpToHash() {
