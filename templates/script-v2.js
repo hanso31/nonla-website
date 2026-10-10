@@ -185,6 +185,26 @@
     });
   })();
 
+  /* ---------- TEMP-DIAG: Tap-Diagnose (wird nach Fehleranalyse entfernt) ---------- */
+  (function () {
+    const diag = document.createElement("div");
+    diag.setAttribute("data-tapdiag", "");
+    diag.style.cssText = "position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#0f0;font:11px/1.4 monospace;padding:4px 6px;white-space:pre-wrap;pointer-events:none;";
+    diag.textContent = "DIAG: " + navigator.userAgent.slice(0, 110);
+    document.body.appendChild(diag);
+    ["touchstart", "touchend", "click"].forEach((type) =>
+      document.addEventListener(type, (e) => {
+        const t = e.target;
+        const p = e.clientX != null ? document.elementFromPoint(e.clientX, e.clientY) : null;
+        const menu = document.getElementById("mobile-menu");
+        diag.textContent =
+          type + " auf " + t.tagName + "." + (typeof t.className === "string" ? t.className : "-") +
+          " | an Punkt: " + (p ? p.tagName + "." + (typeof p.className === "string" ? p.className : "-") : "n/a") +
+          " | Menue: " + (menu ? menu.className : "?");
+      }, true)
+    );
+  })();
+
   /* ---------- Anker-Sprung nach Seitenwechsel (Fix fuer iOS Safari) ---------- */
   (function () {
     function jumpToHash() {
