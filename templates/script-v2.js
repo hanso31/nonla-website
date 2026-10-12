@@ -155,12 +155,12 @@
         row.classList.add("is-open");
         text.textContent = lang === "en"
           ? `open · until ${fmt(current[1])}`
-          : `geöffnet · bis ${fmt(current[1])} Uhr`;
+          : `geöffnet · bis ${fmt(current[1])} Uhr`;
       } else if (upcoming) {
         row.classList.add("is-closed");
         text.textContent = lang === "en"
           ? `closed · opens ${fmt(upcoming[0])}`
-          : `geschlossen · öffnet ${fmt(upcoming[0])} Uhr`;
+          : `geschlossen · öffnet ${fmt(upcoming[0])} Uhr`;
       } else {
         row.classList.add("is-closed");
         text.textContent = lang === "en" ? "closed today" : "heute geschlossen";
