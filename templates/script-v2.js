@@ -56,7 +56,9 @@
 
   let currentLang = "de";
   try { currentLang = localStorage.getItem("nonla-lang") || "de"; } catch (e) { /* ignore */ }
-  if (currentLang === "en") setLang("en");
+  // Achtung: setLang("en") darf hier noch NICHT aufgerufen werden –
+  // updateOpenStatus/HOURS sind erst weiter unten definiert (TDZ-Crash).
+  // Der Startaufruf passiert direkt nach dem Oeffnungszeiten-Block.
 
   /* ---------- Sticky nav state ---------- */
   const nav = document.querySelector(".nav");
@@ -165,6 +167,10 @@
   updateOpenStatus(currentLang);
   setInterval(() => updateOpenStatus(currentLang), 60 * 1000);
 
+  // Gespeicherte Sprache anwenden – erst jetzt, weil setLang intern
+  // updateOpenStatus/HOURS braucht (sonst ReferenceError beim Start).
+  if (currentLang === "en") setLang("en");
+
   /* ---------- Lightbox: Bilder per Klick vergrössern ---------- */
   (function () {
     const box = document.createElement("div");
@@ -193,22 +199,6 @@
     box.addEventListener("click", close);
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") close();
-    });
-  })();
-
-  /* ---------- BFCACHE-Fix: nach Zurueck-Navigation frisch laden ---------- */
-  (function () {
-    window.addEventListener("pagehide", () => {
-      try { sessionStorage.setItem("nonla-scrollback", String(window.scrollY)); } catch (e) { /* egal */ }
-    });
-    window.addEventListener("pageshow", (e) => {
-      if (!e.persisted) return;
-      try {
-        const y = sessionStorage.getItem("nonla-scrollback");
-        sessionStorage.removeItem("nonla-scrollback");
-        if (y) window.addEventListener("load", () => window.scrollTo(0, parseInt(y, 10)), { once: true });
-      } catch (err) { /* egal */ }
-      location.reload();
     });
   })();
 
