@@ -204,11 +204,28 @@
         " docOverflow=" + (document.documentElement.scrollWidth > window.innerWidth + 1 ? "JA" : "nein") +
         " | MENU " + cs(document.getElementById("mobile-menu")));
     }, 800));
+    window.addEventListener("pageshow", (e) => send("V2-PAGESHOW persisted=" + e.persisted));
     document.addEventListener("click", (e) => {
       const menu = document.getElementById("mobile-menu");
       if (!e.target.closest || !e.target.closest(".nav__burger")) return;
       setTimeout(() => send("V2-NACH-BURGER " + cs(menu) + " | cls=" + menu.className), 300);
     }, true);
+  })();
+
+  /* ---------- BFCACHE-Fix: nach Zurueck-Navigation frisch laden ---------- */
+  (function () {
+    window.addEventListener("pagehide", () => {
+      try { sessionStorage.setItem("nonla-scrollback", String(window.scrollY)); } catch (e) { /* egal */ }
+    });
+    window.addEventListener("pageshow", (e) => {
+      if (!e.persisted) return;
+      try {
+        const y = sessionStorage.getItem("nonla-scrollback");
+        sessionStorage.removeItem("nonla-scrollback");
+        if (y) window.addEventListener("load", () => window.scrollTo(0, parseInt(y, 10)), { once: true });
+      } catch (err) { /* egal */ }
+      location.reload();
+    });
   })();
 
   /* ---------- Anker-Sprung nach Seitenwechsel (Fix fuer iOS Safari) ---------- */
