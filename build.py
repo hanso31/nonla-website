@@ -421,6 +421,60 @@ def render_template(text, data, blocks, name):
     return out
 
 
+# TEMP-DEBUG v5: Inline-Snippet, unabhaengig vom Hauptscript (wird entfernt).
+# Loggt JS-Fehler, fehlgeschlagene Script-Ladungen und Menue-Zustand
+# direkt auf dem Bildschirm (aktiv mit ?debug=1, danach klebrig pro Tab).
+DEBUG_SNIPPET = """<script>
+(function(){
+  var perUrl=/[?&]debug=1/.test(location.search);
+  try{if(perUrl)sessionStorage.setItem("nonla-debug","1");}catch(e){}
+  var sticky=false; try{sticky=sessionStorage.getItem("nonla-debug")==="1";}catch(e){}
+  if(!perUrl&&!sticky)return;
+  var lines=[],panel=null;
+  function log(m){
+    var d=new Date(),t=d.toLocaleTimeString("de-CH",{hour12:false})+"."+String(d.getMilliseconds()).padStart(3,"0");
+    lines.push(t+" "+m); if(lines.length>80)lines.shift();
+    if(!panel){
+      panel=document.createElement("div");
+      panel.style.cssText="position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;background:rgba(0,0,0,.92);color:#7fff7f;font:11px/1.45 monospace;padding:8px;z-index:999999;pointer-events:none;white-space:pre-wrap;";
+      (document.body||document.documentElement).appendChild(panel);
+    }
+    panel.textContent=lines.join("\\n"); panel.scrollTop=panel.scrollHeight;
+  }
+  var nav=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];
+  log("DBG5 "+location.pathname.split("/").pop()+" navType="+(nav?nav.type:"?"));
+  window.addEventListener("error",function(e){
+    if(e.target&&e.target!==window&&(e.target.src||e.target.href)){
+      log("RESSOURCE-FEHLSCHLAG: "+(e.target.src||e.target.href).split("/").pop());
+    } else if(e.message){
+      log("JS-FEHLER: "+e.message+" @"+(e.filename||"?").split("/").pop()+":"+e.lineno);
+    }
+  },true);
+  window.addEventListener("pageshow",function(e){ log("pageshow persisted="+e.persisted); });
+  window.addEventListener("load",function(){
+    setTimeout(function(){
+      log("hauptscript: "+(window.__nonlaMainRan?"OK":"*** FEHLT ***"));
+      var s=document.querySelector('script[src*="script-v2.js"]');
+      log("script-tag: "+(s?s.src.split("/").pop():"KEINER"));
+    },1500);
+  });
+  document.addEventListener("click",function(e){
+    if(!e.target.closest||!e.target.closest(".nav__burger"))return;
+    log("burger-klick");
+    setTimeout(function(){
+      var m=document.getElementById("mobile-menu"),b=document.querySelector(".nav__burger");
+      if(!m||!b){log("menu/burger fehlt");return;}
+      var c=getComputedStyle(m);
+      var top=document.elementFromPoint(Math.round(innerWidth/2),Math.round(innerHeight/2));
+      var desc=top?top.tagName+(top.id?"#"+top.id:"")+(typeof top.className==="string"&&top.className?"."+top.className.trim().split(/\\s+/).join("."):""):"null";
+      log("burger=["+b.className+"] menu=["+m.className+"] op="+c.opacity+" disp="+c.display+" z="+c.zIndex+" | obenauf: "+desc);
+    },600);
+  },true);
+})();
+</script>
+</head>"""
+
+
 def build(verify=False):
     data = load_all_content()
     blocks = build_blocks(data)
@@ -444,6 +498,7 @@ def build(verify=False):
             rendered = rendered.replace(
                 'src="script-v2.js"',
                 f'src="script-v2.js?v={stamp}"')
+            rendered = rendered.replace("</head>", DEBUG_SNIPPET, 1)
         # immer LF schreiben (unabhaengig vom Betriebssystem)
         with open(DIST / name, "w", encoding="utf-8", newline="\n") as f:
             f.write(rendered)

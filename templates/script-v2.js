@@ -196,59 +196,6 @@
     });
   })();
 
-  /* ---------- TEMP-DEBUG v4: On-Screen-Panel, aktiv mit ?debug=1 (wird entfernt) ---------- */
-  (function () {
-    const perUrl = /[?&]debug=1/.test(location.search);
-    try { if (perUrl) sessionStorage.setItem("nonla-debug", "1"); } catch (e) { /* egal */ }
-    let sticky = false;
-    try { sticky = sessionStorage.getItem("nonla-debug") === "1"; } catch (e) { /* egal */ }
-    if (!perUrl && !sticky) return;
-    const panel = document.createElement("div");
-    panel.style.cssText = "position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;" +
-      "background:rgba(0,0,0,.92);color:#7fff7f;font:11px/1.45 monospace;padding:8px;z-index:999999;" +
-      "pointer-events:none;white-space:pre-wrap;";
-    (document.body || document.documentElement).appendChild(panel);
-    const lines = [];
-    function log(msg) {
-      const d = new Date();
-      const t = d.toLocaleTimeString("de-CH", { hour12: false }) + "." + String(d.getMilliseconds()).padStart(3, "0");
-      lines.push(t + " " + msg);
-      if (lines.length > 80) lines.shift();
-      panel.textContent = lines.join("\n");
-      panel.scrollTop = panel.scrollHeight;
-    }
-    function desc(el) {
-      if (!el) return "null";
-      return el.tagName + (el.id ? "#" + el.id : "") +
-        (typeof el.className === "string" && el.className ? "." + el.className.trim().split(/\s+/).join(".") : "");
-    }
-    function dump(tag) {
-      const m = document.getElementById("mobile-menu");
-      const b = document.querySelector(".nav__burger");
-      if (!m || !b) { log(tag + ": MENU/BURGER FEHLT!"); return; }
-      const c = getComputedStyle(m);
-      const r = m.getBoundingClientRect();
-      const top = document.elementFromPoint(Math.round(innerWidth / 2), Math.round(innerHeight / 2));
-      log(tag + ": burger=[" + b.className + "] menu=[" + m.className + "] hidden=" + m.hasAttribute("hidden"));
-      log("  op=" + c.opacity + " disp=" + c.display + " z=" + c.zIndex + " bf=" + (c.backdropFilter || c.webkitBackdropFilter || "-") +
-        " rect=" + Math.round(r.width) + "x" + Math.round(r.height) + "@" + Math.round(r.x) + "," + Math.round(r.y) +
-        " | mitte-obenauf: " + desc(top));
-    }
-    const nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
-    const me = document.querySelector('script[src*="script-v2.js"]');
-    log("DEBUG v4 | navType=" + (nav ? nav.type : "?") + " dpr=" + devicePixelRatio +
-      " script?" + (me ? (me.src.split("?")[1] || "ohne-v") : "?") + " kill=" + !!document.getElementById("nonla-no-backdrop"));
-    window.addEventListener("pageshow", (e) => {
-      log("pageshow persisted=" + e.persisted);
-      setTimeout(() => dump("nach-pageshow"), 700);
-    });
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest || !e.target.closest(".nav__burger")) return;
-      log("burger-klick gesehen");
-      setTimeout(() => dump("nach-burger"), 600);
-    }, true);
-  })();
-
   /* ---------- BFCACHE-Fix: nach Zurueck-Navigation frisch laden ---------- */
   (function () {
     window.addEventListener("pagehide", () => {
@@ -322,4 +269,7 @@
     base.style.objectPosition = ROTATE[0].pos;
     setInterval(next, 6000);
   })();
+
+  // Lebenszeichen fuer das TEMP-DEBUG-Snippet (v5): Hauptscript lief bis zum Ende
+  window.__nonlaMainRan = true;
 })();
