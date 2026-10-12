@@ -198,7 +198,11 @@
 
   /* ---------- TEMP-DEBUG v4: On-Screen-Panel, aktiv mit ?debug=1 (wird entfernt) ---------- */
   (function () {
-    if (!/[?&]debug=1/.test(location.search)) return;
+    const perUrl = /[?&]debug=1/.test(location.search);
+    try { if (perUrl) sessionStorage.setItem("nonla-debug", "1"); } catch (e) { /* egal */ }
+    let sticky = false;
+    try { sticky = sessionStorage.getItem("nonla-debug") === "1"; } catch (e) { /* egal */ }
+    if (!perUrl && !sticky) return;
     const panel = document.createElement("div");
     panel.style.cssText = "position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;" +
       "background:rgba(0,0,0,.92);color:#7fff7f;font:11px/1.45 monospace;padding:8px;z-index:999999;" +
