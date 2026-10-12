@@ -196,46 +196,52 @@
     });
   })();
 
-  /* ---------- TEMP-DIAG v2: Sichtbarkeits-Messung (wird entfernt) ---------- */
+  /* ---------- TEMP-DEBUG v4: On-Screen-Panel, aktiv mit ?debug=1 (wird entfernt) ---------- */
   (function () {
-    const HOOK = "https://webhook.site/9af06490-b9a3-47d7-8023-fd2f3b941fca";
-    const send = (line) => {
-      try { fetch(HOOK + "?d=" + encodeURIComponent(line).slice(0, 1800), { mode: "no-cors" }); } catch (e) { /* egal */ }
-    };
-    const cs = (el) => {
-      const c = getComputedStyle(el);
-      const r = el.getBoundingClientRect();
-      return "rect=" + Math.round(r.x) + "," + Math.round(r.y) + "," + Math.round(r.width) + "x" + Math.round(r.height) +
-        " disp=" + c.display + " op=" + c.opacity + " vis=" + c.visibility + " z=" + c.zIndex + " bf=" + (c.backdropFilter || c.webkitBackdropFilter || "-");
-    };
-    window.addEventListener("load", () => setTimeout(() => {
-      const vv = window.visualViewport;
-      let sheets = "?";
-      let backdropQuelle = "keine";
-      try {
-        sheets = Array.from(document.styleSheets).map((s) => (s.href || "inline").split("?")[0].split("/").pop()).join(",");
-        for (const s of document.styleSheets) {
-          let rules;
-          try { rules = s.cssRules; } catch (err) { continue; }
-          for (const r of rules) {
-            if (r.cssText && r.cssText.indexOf("backdrop") >= 0) {
-              backdropQuelle = (s.href || "inline").split("?")[0].split("/").pop();
-              break;
-            }
-          }
-          if (backdropQuelle !== "keine") break;
-        }
-      } catch (err) { /* egal */ }
-      send("V3-LOAD vw=" + window.innerWidth + " dpr=" + window.devicePixelRatio +
-        " vv=" + (vv ? Math.round(vv.width) + "x" + Math.round(vv.height) + " s" + vv.scale.toFixed(2) : "?") +
-        " | css=[" + sheets + "] blur-in=" + backdropQuelle +
-        " | MENU " + cs(document.getElementById("mobile-menu")));
-    }, 800));
-    window.addEventListener("pageshow", (e) => send("V3-PAGESHOW persisted=" + e.persisted));
+    if (!/[?&]debug=1/.test(location.search)) return;
+    const panel = document.createElement("div");
+    panel.style.cssText = "position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;" +
+      "background:rgba(0,0,0,.92);color:#7fff7f;font:11px/1.45 monospace;padding:8px;z-index:999999;" +
+      "pointer-events:none;white-space:pre-wrap;";
+    (document.body || document.documentElement).appendChild(panel);
+    const lines = [];
+    function log(msg) {
+      const d = new Date();
+      const t = d.toLocaleTimeString("de-CH", { hour12: false }) + "." + String(d.getMilliseconds()).padStart(3, "0");
+      lines.push(t + " " + msg);
+      if (lines.length > 80) lines.shift();
+      panel.textContent = lines.join("\n");
+      panel.scrollTop = panel.scrollHeight;
+    }
+    function desc(el) {
+      if (!el) return "null";
+      return el.tagName + (el.id ? "#" + el.id : "") +
+        (typeof el.className === "string" && el.className ? "." + el.className.trim().split(/\s+/).join(".") : "");
+    }
+    function dump(tag) {
+      const m = document.getElementById("mobile-menu");
+      const b = document.querySelector(".nav__burger");
+      if (!m || !b) { log(tag + ": MENU/BURGER FEHLT!"); return; }
+      const c = getComputedStyle(m);
+      const r = m.getBoundingClientRect();
+      const top = document.elementFromPoint(Math.round(innerWidth / 2), Math.round(innerHeight / 2));
+      log(tag + ": burger=[" + b.className + "] menu=[" + m.className + "] hidden=" + m.hasAttribute("hidden"));
+      log("  op=" + c.opacity + " disp=" + c.display + " z=" + c.zIndex + " bf=" + (c.backdropFilter || c.webkitBackdropFilter || "-") +
+        " rect=" + Math.round(r.width) + "x" + Math.round(r.height) + "@" + Math.round(r.x) + "," + Math.round(r.y) +
+        " | mitte-obenauf: " + desc(top));
+    }
+    const nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+    const me = document.querySelector('script[src*="script-v2.js"]');
+    log("DEBUG v4 | navType=" + (nav ? nav.type : "?") + " dpr=" + devicePixelRatio +
+      " script?" + (me ? (me.src.split("?")[1] || "ohne-v") : "?") + " kill=" + !!document.getElementById("nonla-no-backdrop"));
+    window.addEventListener("pageshow", (e) => {
+      log("pageshow persisted=" + e.persisted);
+      setTimeout(() => dump("nach-pageshow"), 700);
+    });
     document.addEventListener("click", (e) => {
-      const menu = document.getElementById("mobile-menu");
       if (!e.target.closest || !e.target.closest(".nav__burger")) return;
-      setTimeout(() => send("V3-NACH-BURGER " + cs(menu) + " | cls=" + menu.className), 300);
+      log("burger-klick gesehen");
+      setTimeout(() => dump("nach-burger"), 600);
     }, true);
   })();
 
