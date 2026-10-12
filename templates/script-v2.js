@@ -259,7 +259,4 @@
     base.style.objectPosition = ROTATE[0].pos;
     setInterval(next, 6000);
   })();
-
-  // Lebenszeichen fuer das TEMP-DEBUG-Snippet (v5): Hauptscript lief bis zum Ende
-  window.__nonlaMainRan = true;
 })();
