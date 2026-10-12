@@ -2,6 +2,17 @@
 (function () {
   "use strict";
 
+  /* ---------- GPU-Bug-Hardkill: backdrop-filter zuverlaessig abschalten ----------
+     Manche Android-Chrome-Versionen rendern Elemente mit backdrop-filter unsichtbar.
+     Ein injizierter !important-Style schlaegt jede (auch gecachte) CSS-Datei. */
+  (function () {
+    const kill = document.createElement("style");
+    kill.id = "nonla-no-backdrop";
+    kill.textContent = ".nav,.nav.is-scrolled,.nav--solid,.mobile-menu,.lightbox{" +
+      "backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}";
+    (document.head || document.documentElement).appendChild(kill);
+  })();
+
   /* ---------- i18n ---------- */
   const I18N = {
     en: {
@@ -199,16 +210,32 @@
     };
     window.addEventListener("load", () => setTimeout(() => {
       const vv = window.visualViewport;
-      send("V2-LOAD vw=" + window.innerWidth + " dpr=" + window.devicePixelRatio +
+      let sheets = "?";
+      let backdropQuelle = "keine";
+      try {
+        sheets = Array.from(document.styleSheets).map((s) => (s.href || "inline").split("?")[0].split("/").pop()).join(",");
+        for (const s of document.styleSheets) {
+          let rules;
+          try { rules = s.cssRules; } catch (err) { continue; }
+          for (const r of rules) {
+            if (r.cssText && r.cssText.indexOf("backdrop") >= 0) {
+              backdropQuelle = (s.href || "inline").split("?")[0].split("/").pop();
+              break;
+            }
+          }
+          if (backdropQuelle !== "keine") break;
+        }
+      } catch (err) { /* egal */ }
+      send("V3-LOAD vw=" + window.innerWidth + " dpr=" + window.devicePixelRatio +
         " vv=" + (vv ? Math.round(vv.width) + "x" + Math.round(vv.height) + " s" + vv.scale.toFixed(2) : "?") +
-        " docOverflow=" + (document.documentElement.scrollWidth > window.innerWidth + 1 ? "JA" : "nein") +
+        " | css=[" + sheets + "] blur-in=" + backdropQuelle +
         " | MENU " + cs(document.getElementById("mobile-menu")));
     }, 800));
-    window.addEventListener("pageshow", (e) => send("V2-PAGESHOW persisted=" + e.persisted));
+    window.addEventListener("pageshow", (e) => send("V3-PAGESHOW persisted=" + e.persisted));
     document.addEventListener("click", (e) => {
       const menu = document.getElementById("mobile-menu");
       if (!e.target.closest || !e.target.closest(".nav__burger")) return;
-      setTimeout(() => send("V2-NACH-BURGER " + cs(menu) + " | cls=" + menu.className), 300);
+      setTimeout(() => send("V3-NACH-BURGER " + cs(menu) + " | cls=" + menu.className), 300);
     }, true);
   })();
 
