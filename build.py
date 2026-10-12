@@ -449,6 +449,7 @@ def build(verify=False):
             f.write(rendered)
 
     shutil.copy2(ROOT / "styles-v2.css", DIST / "styles-v2.css")
+    shutil.copy2(ROOT / "menutest.html", DIST / "menutest.html")
     shutil.copytree(ROOT / "images", DIST / "images")
     shutil.copytree(ROOT / "admin", DIST / "admin")
 
