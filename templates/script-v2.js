@@ -122,11 +122,12 @@
   window.addEventListener("load", onRevealTrigger);
   revealInView();
 
-  /* ---------- Open-now status (Kitchen Spalenbrunnen) ---------- */
+  /* ---------- Open-now status (alle drei Standorte) ---------- */
   // [day 0=Sun..6=Sat] -> list of [openMinutes, closeMinutes]
   const HOURS = {
 @@hours@@
   };
+  const STATUS_LOCS = ["spalenbrunnen", "markthalle", "klara"];
 
   function fmt(minutes) {
     return `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
@@ -134,34 +135,37 @@
 
   function updateOpenStatus(lang) {
     const wrap = document.getElementById("open-status");
-    const text = document.getElementById("open-status-text");
-    if (!wrap || !text) return; // Element existiert nur auf der Startseite
+    if (!wrap) return; // Element existiert nur auf der Startseite
     const now = new Date();
     const day = now.getDay();
     const minutes = now.getHours() * 60 + now.getMinutes();
-    const todays = HOURS[day] || [];
 
-    const current = todays.find(([o, c]) => minutes >= o && minutes < c - 30); // kitchen closes 30 min early
-    const upcoming = todays.find(([o]) => minutes < o);
+    STATUS_LOCS.forEach((loc) => {
+      const row = wrap.querySelector(`[data-loc="${loc}"]`);
+      if (!row) return;
+      const text = row.querySelector(".hero__status-text");
+      const todays = (HOURS[loc] && HOURS[loc][day]) || [];
 
-    wrap.classList.remove("is-open", "is-closed");
+      const current = todays.find(([o, c]) => minutes >= o && minutes < c - 30); // kitchen closes 30 min early
+      const upcoming = todays.find(([o]) => minutes < o);
 
-    if (current) {
-      wrap.classList.add("is-open");
-      text.textContent = lang === "en"
-        ? `Open now · until ${fmt(current[1])}`
-        : `Jetzt geöffnet · bis ${fmt(current[1])} Uhr`;
-    } else if (upcoming) {
-      wrap.classList.add("is-closed");
-      text.textContent = lang === "en"
-        ? `Closed · opens today at ${fmt(upcoming[0])}`
-        : `Geschlossen · öffnet heute um ${fmt(upcoming[0])} Uhr`;
-    } else {
-      wrap.classList.add("is-closed");
-      text.textContent = lang === "en"
-        ? "Closed · opens again tomorrow"
-        : "Geschlossen · öffnet wieder morgen";
-    }
+      row.classList.remove("is-open", "is-closed");
+
+      if (current) {
+        row.classList.add("is-open");
+        text.textContent = lang === "en"
+          ? `open · until ${fmt(current[1])}`
+          : `geöffnet · bis ${fmt(current[1])} Uhr`;
+      } else if (upcoming) {
+        row.classList.add("is-closed");
+        text.textContent = lang === "en"
+          ? `closed · opens ${fmt(upcoming[0])}`
+          : `geschlossen · öffnet ${fmt(upcoming[0])} Uhr`;
+      } else {
+        row.classList.add("is-closed");
+        text.textContent = lang === "en" ? "closed today" : "heute geschlossen";
+      }
+    });
   }
 
   updateOpenStatus(currentLang);

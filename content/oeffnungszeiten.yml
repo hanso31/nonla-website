@@ -8,7 +8,7 @@
 # bestellzeiten: Die Tabelle "Bestellzeiten Spalenbrunnen" auf der Seite
 #              "Online bestellen" (gleiches Format).
 # status:      Steuert die automatische Anzeige "Jetzt geoeffnet /
-#              Geschlossen" auf der Startseite (Kueche Spalenbrunnen).
+#              Geschlossen" auf der Startseite – PRO STANDORT ein Block.
 #              Format pro Wochentag: "HH:MM-HH:MM" oder mehrere Spannen
 #              mit Komma: "11:30-14:00, 18:00-22:00". Leer ("") =
 #              geschlossen. Hier Doppelpunkt und Bindestrich verwenden!
@@ -51,10 +51,27 @@ bestellzeiten:
 - tage: days.sa
   zeit: 12.00 – 22.00
 status:
-  so: ''
-  mo: 11:30-14:00, 18:00-22:00
-  di: 11:30-14:00, 18:00-22:00
-  mi: 11:30-14:00, 18:00-22:00
-  do: 11:30-14:00, 18:00-22:00
-  fr: 11:30-14:00, 18:00-22:30
-  sa: 12:00-22:30
+  spalenbrunnen:
+    so: ''
+    mo: 11:30-14:00, 18:00-22:00
+    di: 11:30-14:00, 18:00-22:00
+    mi: 11:30-14:00, 18:00-22:00
+    do: 11:30-14:00, 18:00-22:00
+    fr: 11:30-14:00, 18:00-22:30
+    sa: 12:00-22:30
+  markthalle:
+    so: 11:30-16:00
+    mo: 11:30-14:00
+    di: 11:30-14:00, 18:00-21:30
+    mi: 11:30-14:00, 18:00-21:30
+    do: 11:30-14:00, 18:00-21:30
+    fr: 11:30-14:00, 18:00-21:30
+    sa: 11:30-14:00, 18:00-21:30
+  klara:
+    so: 11:30-21:30
+    mo: 11:30-14:00, 18:00-21:30
+    di: 11:30-14:00, 18:00-21:30
+    mi: 11:30-14:00, 18:00-21:30
+    do: 11:30-14:00, 18:00-21:30
+    fr: 11:30-14:00, 18:00-21:30
+    sa: 11:30-21:30

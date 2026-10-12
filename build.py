@@ -365,20 +365,24 @@ def parse_time(value):
 
 def gen_hours_js(data):
     status = data["zeiten"]["status"]
-    lines = []
-    for index, tag in enumerate(WEEKDAYS_JS):
-        roh = (status.get(tag) or "").strip()
-        if not roh:
-            eintrag = "null"
-        else:
-            spans = []
-            for teil in roh.split(","):
-                von, bis = teil.strip().split("-")
-                spans.append(f"[{parse_time(von)}, {parse_time(bis)}]")
-            eintrag = "[" + ", ".join(spans) + "]"
-        kommentar = WEEKDAY_COMMENT.get(tag, "")
-        lines.append(f"    {index}: {eintrag},{kommentar}")
-    return "\n".join(lines)
+    standorte = []
+    for ort in ("spalenbrunnen", "markthalle", "klara"):
+        tage = status.get(ort) or {}
+        lines = []
+        for index, tag in enumerate(WEEKDAYS_JS):
+            roh = str(tage.get(tag) or "").strip()
+            if not roh:
+                eintrag = "null"
+            else:
+                spans = []
+                for teil in roh.split(","):
+                    von, bis = teil.strip().split("-")
+                    spans.append(f"[{parse_time(von)}, {parse_time(bis)}]")
+                eintrag = "[" + ", ".join(spans) + "]"
+            kommentar = WEEKDAY_COMMENT.get(tag, "")
+            lines.append(f"      {index}: {eintrag},{kommentar}")
+        standorte.append(f"    {ort}: {{\n" + "\n".join(lines) + "\n    }")
+    return ",\n".join(standorte)
 
 
 # --------------------------------------------------------------------------

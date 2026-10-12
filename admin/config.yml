@@ -384,16 +384,45 @@ collections:
             fields:
               - {label: "Tage", name: tage, widget: select, options: [{label: "Mo", value: days.mo}, {label: "Mo – Fr", value: days.mofr}, {label: "Mo – Do", value: days.modo}, {label: "Fr", value: days.fr}, {label: "Sa", value: days.sa}, {label: "So", value: days.so}, {label: "Di – Sa", value: days.disa}, {label: "Sa – So", value: days.saso}]}
               - {label: "Zeit", name: zeit, widget: string, hint: "z. B. 11.30 – 14.00"}
-          - label: "Automatik «Jetzt geöffnet» (Spalenbrunnen)"
+          - label: "Automatik «Jetzt geöffnet» (alle Standorte)"
             name: status
             widget: object
             collapsed: true
             hint: "Format: HH:MM-HH:MM, mehrere Spannen mit Komma, leer = geschlossen"
             fields:
-              - {label: Montag, name: mo, widget: string, required: false}
-              - {label: Dienstag, name: di, widget: string, required: false}
-              - {label: Mittwoch, name: mi, widget: string, required: false}
-              - {label: Donnerstag, name: do, widget: string, required: false}
-              - {label: Freitag, name: fr, widget: string, required: false}
-              - {label: Samstag, name: sa, widget: string, required: false}
-              - {label: Sonntag, name: so, widget: string, required: false}
+              - label: Kitchen Spalenbrunnen
+                name: spalenbrunnen
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Montag, name: mo, widget: string, required: false}
+                  - {label: Dienstag, name: di, widget: string, required: false}
+                  - {label: Mittwoch, name: mi, widget: string, required: false}
+                  - {label: Donnerstag, name: do, widget: string, required: false}
+                  - {label: Freitag, name: fr, widget: string, required: false}
+                  - {label: Samstag, name: sa, widget: string, required: false}
+                  - {label: Sonntag, name: so, widget: string, required: false}
+              - label: Streetfood Markthalle
+                name: markthalle
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Montag, name: mo, widget: string, required: false}
+                  - {label: Dienstag, name: di, widget: string, required: false}
+                  - {label: Mittwoch, name: mi, widget: string, required: false}
+                  - {label: Donnerstag, name: do, widget: string, required: false}
+                  - {label: Freitag, name: fr, widget: string, required: false}
+                  - {label: Samstag, name: sa, widget: string, required: false}
+                  - {label: Sonntag, name: so, widget: string, required: false}
+              - label: Corner Klara
+                name: klara
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Montag, name: mo, widget: string, required: false}
+                  - {label: Dienstag, name: di, widget: string, required: false}
+                  - {label: Mittwoch, name: mi, widget: string, required: false}
+                  - {label: Donnerstag, name: do, widget: string, required: false}
+                  - {label: Freitag, name: fr, widget: string, required: false}
+                  - {label: Samstag, name: sa, widget: string, required: false}
+                  - {label: Sonntag, name: so, widget: string, required: false}

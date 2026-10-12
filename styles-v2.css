@@ -421,16 +421,34 @@ section { scroll-margin-top: 96px; }
 
 .hero__status {
   display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--ink-soft);
   background: var(--card);
   border: 1px solid var(--line);
-  padding: 9px 18px;
-  border-radius: 999px;
+  padding: 12px 20px;
+  border-radius: 18px;
   margin-bottom: 34px;
+}
+
+.hero__status-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hero__status-name {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero__status-name::after {
+  content: "·";
+  margin-left: 9px;
+  color: var(--muted);
 }
 
 .hero__status .dot {
@@ -441,8 +459,8 @@ section { scroll-margin-top: 96px; }
   flex-shrink: 0;
 }
 
-.hero__status.is-open .dot { background: #2e9e5b; box-shadow: 0 0 0 4px rgba(46, 158, 91, 0.18); }
-.hero__status.is-closed .dot { background: var(--red); box-shadow: 0 0 0 4px rgba(191, 63, 38, 0.15); }
+.hero__status-row.is-open .dot { background: #2e9e5b; box-shadow: 0 0 0 4px rgba(46, 158, 91, 0.18); }
+.hero__status-row.is-closed .dot { background: var(--red); box-shadow: 0 0 0 4px rgba(191, 63, 38, 0.15); }
 
 .hero__facts {
   display: flex;
